@@ -1,0 +1,13 @@
+# Macros / Replacement Parameter definitions
+$productCatalog=concerttoursProductCatalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Online'])[unique=true,default=$productCatalog:Online]
+$medias=medias(code, $catalogVersion)
+$siteResource=jar:de.stripedgiraffe.concerttours.core.constants.ConcerttoursCoreConstants&/concerttourscore/import/concerttours/bandimages
+   
+# Product catalog
+INSERT_UPDATE Catalog;id[unique=true]
+;$productCatalog
+ 
+# Product catalog version
+INSERT_UPDATE CatalogVersion;catalog(id)[unique=true];version[unique=true];active;languages(isoCode);readPrincipals(uid)
+;$productCatalog;Online;true;en;employeegroup
