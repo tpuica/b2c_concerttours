@@ -538,4 +538,11 @@
 		<property name="itemCleanupHooks" ref="csTicketRetentionHooks"/>
 		<property name="ticketBusinessService" ref="ticketBusinessService"/>
 	</bean>
+
+	<bean id="ConcerttoursCustomSetup" class="de.stripedgiraffe.concerttours.core.setup.ConcerttoursCustomSetup" >
+		<property name="importService" ref="importService"/>
+	</bean>
+
+	<bean id="concertDaysUntilAttributeHandler" class="de.stripedgiraffe.concerttours.core.attributehandlers.ConcertDaysUntilAttributeHandler"/>
+
 </beans>

@@ -1,0 +1,8 @@
+# Macros / Replacement Parameter definitions
+
+$productCatalog=concerttoursProductCatalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Online'])[unique=true,default=$productCatalog:Online]
+$categories=target(code, $catalogVersion)[unique=true]
+$supercategories=source(code, $catalogVersion)[unique=true]
+
+INSERT_UPDATE Category;code[unique=true];supercategories(code,$catalogVersion);$catalogVersion

@@ -11,6 +11,23 @@
     </collectiontypes>
 
     <enumtypes>
+	
+		<enumtype code="ConcertType" autocreate="true" generate="true" dynamic="false">
+			<value code="openair" />
+			<value code="indoor" />
+		</enumtype>
+		
+		<enumtype code="ConcertTicketPriceCategory" autocreate="true" generate="true" dynamic="false">
+			<value code="GA" />
+			<value code="CATI" />
+			<value code="CATII" />
+			<value code="CATIII" />
+			<value code="CATIV" />
+			<value code="CATV" />
+		</enumtype>
+		
+		<enumtype code="MusicType" autocreate="true" generate="true" dynamic="true" />
+		
         <enumtype generate="true" code="SwatchColorEnum" autocreate="true" dynamic="true">
             <value code="BLACK"/>
             <value code="BLUE"/>
@@ -26,13 +43,151 @@
             <value code="YELLOW"/>
         </enumtype>
     </enumtypes>
+	
+	<relations>
+		<relation code="Product2RockBand" autocreate="true" generate="false" localized="false">
+			<sourceElement qualifier="tours" type="Product" collectiontype="set" cardinality="many" ordered="false">
+				<modifiers read="true" write="true" search="true" optional="true" />
+			</sourceElement>
+			<targetElement qualifier="band" type="Band" cardinality="one">
+				<modifiers read="true" write="true" search="true" optional="true" />
+			</targetElement>
+		</relation>
+		<relation code="Band2MusicType" autocreate="true" generate="false" localized="false">
+			<deployment table="Band2MusicType" typecode="30269" />
+			<sourceElement qualifier="bands" type="Band" collectiontype="set" cardinality="many" ordered="false">
+				<modifiers read="true" write="true" search="true" optional="true" />
+			</sourceElement>
+			<targetElement qualifier="types" type="MusicType" cardinality="many">
+				<modifiers read="true" write="true" search="true" optional="true" />
+			</targetElement>
+		</relation>
+	</relations>	
 
     <itemtypes>
-
-        <!-- Add your item definitions here -->
-
-
+      
         <!-- TypeGroups are for structure of this file only -->
+
+		<typegroup name="ConcertTours">
+		
+			<itemtype generate="true" code="Product" autocreate="false">
+				<attributes>
+					<attribute qualifier="hashtag" type="localized:java.lang.String">
+						<description>hashtag of concert tour for social media</description>
+						<persistence type="property" />
+					</attribute>
+				</attributes>
+			</itemtype>
+
+			<itemtype generate="true" code="Band" autocreate="true">
+				<deployment table="Bands" typecode="30268" />
+				<attributes>
+					<attribute qualifier="code" type="java.lang.String">
+						<description>short unique code of band</description>
+						<persistence type="property" />
+					</attribute>
+					<attribute qualifier="name" type="java.lang.String">
+						<description>name of band</description>
+						<persistence type="property" />
+						<modifiers optional="false" unique="true" />
+					</attribute>
+					<attribute qualifier="history" type="localized:java.lang.String">
+						<description>history of band</description>
+						<persistence type="property" />
+					</attribute>
+					<attribute qualifier="albumSales" type="java.lang.Long">
+						<description>official global album sales</description>
+						<persistence type="property" />
+					</attribute>
+					<attribute qualifier="image" type="MediaContainer">
+						<description>picture of band in different formats</description>
+						<persistence type="property" />
+					</attribute>
+				</attributes>
+			</itemtype>
+
+			<itemtype generate="true" code="Concert" extends="VariantProduct" autocreate="true">
+				<attributes>
+					<attribute qualifier="venue" type="java.lang.String">
+						<description>venue of concert</description>
+						<persistence type="property" />
+					</attribute>
+					<attribute qualifier="date" type="java.util.Date">
+						<description>date of concert</description>
+						<persistence type="property" />
+					</attribute>
+					<attribute qualifier="concertType" type="ConcertType">
+						<description>type of concert (indoors or open air)</description>
+						<persistence type="property" />
+					</attribute>
+					<attribute qualifier="daysUntil" type="java.lang.Long">
+						<persistence type="dynamic" attributeHandler="concertDaysUntilAttributeHandler" />
+						<modifiers read="true" write="false" />
+					</attribute>
+				</attributes>
+			</itemtype>
+
+			<!-- new -->
+			
+			<itemtype generate="true" code="ConcertTicket" extends="Concert" autocreate="true" >
+			    <description>Concert Ticket variant.</description>
+                <attributes>
+                    <attribute qualifier="priceCategory" type="ConcertTicketPriceCategory">
+                        <description>Price Category of the product.</description>
+                        <modifiers/>
+                        <persistence type="property"/>
+                    </attribute>
+                </attributes>
+			</itemtype>
+
+			<!-- END new -->
+
+			<itemtype generate="true" code="News" autocreate="true">
+				<deployment table="News" typecode="30270" />
+				<attributes>
+					<attribute qualifier="date" type="java.util.Date">
+						<description>date of news item</description>
+						<persistence type="property" />
+					</attribute>
+					<attribute qualifier="headline" type="java.lang.String">
+						<description>short headline for the news item</description>
+						<persistence type="property" />
+					</attribute>
+					<attribute qualifier="content" type="java.lang.String">
+						<description>fuller description of the news item</description>
+						<persistence type="property" />
+					</attribute>
+				</attributes>
+			</itemtype>
+
+			<itemtype code="NotLoremIpsumConstraint" extends="AttributeConstraint"
+					  autocreate="true" generate="true">
+				<description>Custom constraint which checks for Lorem Ipsum text.</description>
+				<attributes>
+					<attribute qualifier="annotation" type="java.lang.Class"
+							   redeclare="true">
+						<modifiers write="false" initial="true" optional="false" />
+						<defaultvalue>
+							concerttours.constraints.NotLoremIpsum.class
+						</defaultvalue>
+					</attribute>
+				</attributes>
+			</itemtype>
+
+			<itemtype code="UniqueBandNameConstraint" extends="TypeConstraint" autocreate="true" generate="true" >
+				<description>Custom constraint which checks for unique Band Name.</description>
+				<attributes>
+					<attribute qualifier="annotation" type="java.lang.Class" redeclare="true">
+						<modifiers write="false" initial="true" optional="false" />
+						<defaultvalue>
+							concerttours.constraints.UniqueBandName.class
+						</defaultvalue>
+					</attribute>
+				</attributes>
+			</itemtype>
+		
+		
+		</typegroup>
 
         <typegroup name="Apparel">
             <itemtype code="ApparelProduct" extends="Product"
