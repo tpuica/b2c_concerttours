@@ -19,8 +19,10 @@
 	<import resource="classpath:/concerttourscore/integration/hot-folder-common-spring.xml"/>
 
 	<!-- SystemSetup for the ConcerttoursCore -->
-	<bean id="acceleratorCoreSystemSetup" class="de.stripedgiraffe.concerttours.core.setup.CoreSystemSetup"
-	       parent="abstractCoreSystemSetup"/>
+	<bean id="acceleratorCoreSystemSetup" class="de.stripedgiraffe.concerttours.core.setup.CoreSystemSetup" parent="abstractCoreSystemSetup">	
+		<property name="coreDataImportService" ref="coreDataImportService"/>
+		<property name="sampleDataImportService" ref="sampleDataImportService"/>
+	</bean>		   
 
 	<!-- Solr field value providers -->
 
