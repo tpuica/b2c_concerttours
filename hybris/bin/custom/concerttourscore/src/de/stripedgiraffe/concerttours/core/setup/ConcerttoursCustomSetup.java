@@ -40,10 +40,10 @@ public class ConcerttoursCustomSetup
     public boolean addMyProjectData()
     {
         LOG.info("Starting custom project data loading for the Concerttours extension");
-        impexImport("/concerttourscore/import/concerttours/impex/concerttours-bands.impex");
-		impexImport("/concerttourscore/import/concerttours/impex/concerttours-bands-de.impex");
-		impexImport("/concerttourscore/import/concerttours/impex/concerttours-bands-en.impex");
-        impexImport("/concerttourscore/import/concerttours/impex/concerttours-yBandTour.impex");
+        // impexImport("/concerttourscore/import/concerttours/impex/concerttours-bands.impex");
+		// impexImport("/concerttourscore/import/concerttours/impex/concerttours-bands-de.impex");
+		// impexImport("/concerttourscore/import/concerttours/impex/concerttours-bands-en.impex");
+        // impexImport("/concerttourscore/import/concerttours/impex/concerttours-yBandTour.impex");
         LOG.info("Custom project data loading for the Concerttours extension completed.");
         return true;
     }

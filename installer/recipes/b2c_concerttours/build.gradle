@@ -30,8 +30,19 @@ def platform = platform {
 
         // property 'website.concerttours.http', 'http://concerttours.local:9001/concerttoursstorefront'		
         // property 'website.concerttours.https', 'https://concerttours.local:9002/concerttoursstorefront'
-		property 'website.electronics.http', 'http://electronics.local:9001/concerttoursstorefront'		
-        property 'website.electronics.https', 'https://electronics.local:9002/concerttoursstorefront'		
+		// property 'website.electronics.http', 'http://electronics.local:9001/concerttoursstorefront'		
+        // property 'website.electronics.https', 'https://electronics.local:9002/concerttoursstorefront'		
+		
+		// property 'website.apparel-uk.http', 'http://apparel-uk.local:9001/concerttoursstorefront'
+		// property 'website.apparel-uk.https', 'https://apparel-uk.local:9002/concerttoursstorefront'
+		// property 'website.apparel-de.http', 'http://apparel-de.local:9001/concerttoursstorefront'	
+		// property 'website.apparel-de.https', 'https://apparel-de.local:9002/concerttoursstorefront'	
+		
+		// property 'media.apparel-uk.http', 'http://apparel-uk.local:9001'
+		// property 'media.apparel-uk.https', 'https://apparel-uk.local:9002'
+		// property 'media.apparel-de.http', 'http://apparel-de.local:9001'
+		// property 'media.apparel-de.https', 'https://apparel-de.local:9002'
+		
         // property 'concerttoursstorefront.illegalrequirementstest.excluded', 'true'
         // property 'multicountrysampledataaddon.import.active', 'false'
         // property 'occ.rewrite.overlapping.paths.enabled', 'true' // for being able to run B2C & B2B alongside each other
@@ -94,8 +105,8 @@ def platform = platform {
             extName 'b2bcommercebackoffice'
             extName 'b2bcommercefacades'
         // b2c-accelerator
-		//   extName 'apparelstore'
-           extName 'electronicsstore'
+		   extName 'apparelstore'
+        //   extName 'electronicsstore'
         // b2c-accelerator-addons
             extName 'captchaaddon'
             // extName 'hybrisanalyticsaddon'

@@ -12,7 +12,8 @@
                 		
         
         <requires-extension name="acceleratorcms"/>
-                		
+        <requires-extension name="apparelstore"/>
+
         
         <coremodule generated="true" manager="de.stripedgiraffe.concerttours.core.jalo.ConcerttoursCoreManager" packageroot="de.stripedgiraffe.concerttours.core"/>
                 		

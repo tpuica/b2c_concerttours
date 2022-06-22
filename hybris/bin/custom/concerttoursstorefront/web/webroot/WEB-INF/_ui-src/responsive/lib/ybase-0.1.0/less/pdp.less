@@ -173,6 +173,66 @@
 				}
 			}
 		}
+		.concerttours-variant-list{
+			.list-unstyled;
+			.clearfix;
+			margin-left: -(@grid-gutter-width);
+
+			li{
+				float: left;
+				margin: 0 0 7px (@grid-gutter-width);
+				a,span{
+					float: none;
+					height: @input-height-base;
+					width: 350px;
+					line-height: initial;
+					text-align: left;
+					text-transform: uppercase;
+					padding: 5px;
+					border:1px solid #cccccc;
+					background: #fff;
+					color: #19212b;
+					font-weight: bold;
+					text-decoration: none;
+
+					@media (max-width: @screen-sm-max) {
+						height: @input-height-large;
+						width: @input-height-large;
+						line-height: @input-height-large;
+					}
+
+
+					img{
+						width: 100%;
+						height: auto;
+						vertical-align: top;
+						border:1px solid transparent;
+					}
+				}
+
+
+
+				&:hover a,
+				&.active a{
+					background: lightgrey;
+					.box-shadow(~"inset 0 0  0 1px #fff");
+					border: 1px solid #47b6b1;
+					color: #fff;
+
+					img{
+						border:1px solid #fff;
+					}
+				}
+
+
+				&.disabled{
+					span{
+						color:#999;
+						cursor: not-allowed;
+					}
+				}
+			}
+		}
 		.variant-select{
 			margin: (@grid-gutter-width/2) 0 0;
 		}

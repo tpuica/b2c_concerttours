@@ -106,7 +106,7 @@
 				</attributes>
 			</itemtype>
 
-			<itemtype generate="true" code="Concert" extends="VariantProduct" autocreate="true">
+			<itemtype generate="true" code="Concert" extends="Product" autocreate="true">
 				<attributes>
 					<attribute qualifier="venue" type="java.lang.String">
 						<description>venue of concert</description>
@@ -129,15 +129,16 @@
 
 			<!-- new -->
 			
-			<itemtype generate="true" code="ConcertTicket" extends="Concert" autocreate="true" >
+			<itemtype generate="true" code="ConcertTicket" extends="VariantProduct" autocreate="true" >
 			    <description>Concert Ticket variant.</description>
                 <attributes>
-                    <attribute qualifier="priceCategory" type="ConcertTicketPriceCategory">
+                    <attribute qualifier="priceCategory" type="ConcertTicketPriceCategory"
+							   metatype="VariantAttributeDescriptor">
                         <description>Price Category of the product.</description>
                         <modifiers/>
                         <persistence type="property"/>
                     </attribute>
-                </attributes>
+				</attributes>
 			</itemtype>
 
 			<!-- END new -->
