@@ -26,41 +26,7 @@ public class DefaultTourFacade implements TourFacade
 	@Override
 	public TourData getTourDetails(final String tourId)
 	{
-		if (tourId == null)
-		{
-			throw new IllegalArgumentException("Tour id cannot be null");
-		}
-		final ProductModel product = productService.getProductForCode(tourId);
-		if (product == null)
-		{
-			return null;
-		}
-		// Create a list of ConcertSummaryData from the matches
-		final List<ConcertSummaryData> concerts = new ArrayList<>();
-		if (product.getVariants() != null)
-		{
-			for (final VariantProductModel variant : product.getVariants())
-			{
-				if (variant instanceof ConcertModel)
-				{
-					final ConcertModel concert = (ConcertModel) variant;
-					final ConcertSummaryData summary = new ConcertSummaryData();
-					summary.setId(concert.getCode());
-					summary.setDate(concert.getDate());
-					summary.setVenue(concert.getVenue());
-					summary.setType(concert.getConcertType() == ConcertType.OPENAIR ? "Outdoors" : "Indoors");
-					summary.setCountDown(concert.getDaysUntil());
-					concerts.add(summary);
-				}
-			}
-		}
-		// Now we can create the TourData transfer object
-		final TourData tourData = new TourData();
-		tourData.setId(product.getCode());
-		tourData.setTourName(product.getName());
-		tourData.setDescription(product.getDescription());
-		tourData.setConcerts(concerts);
-		return tourData;
+		return null;
 	}
 
 	@Required
