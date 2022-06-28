@@ -1,0 +1,57 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Products into Apparel Store
+#% impex.setLocale( Locale.GERMAN ); 
+
+# Macros / Replacement Parameter definitions
+$productCatalog=apparelProductCatalog
+$productCatalogName=Apparel Product Catalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$baseProduct=baseProduct(code, catalogVersion(catalog(id[default='$productCatalog']),version[default='Staged']))
+$supercategories=supercategories(code, $catalogVersion)
+$approved=approvalstatus(code)[default='approved']
+$taxGroup=Europe1PriceFactory_PTG(code)[default=eu-vat-full]
+
+# Apparel products use Variants with a structure:
+# ApparelProduct > ApparelStyleVariantProduct > ApparelSizeVariantProduct
+# Apparel products may have no variations, only colour (style) variations or both colour and size variations.
+
+# Insert Products
+INSERT_UPDATE Product;code[unique=true];name;band(code);hashtag[lang=en];hashtag[lang=de];$supercategories;manufacturerName;manufacturerAID;unit(code);ean;variantType(code);$catalogVersion;$approved
+;201701;The Grand Little x Tour;A001;GrandLittle;GrossWenig;;x;y;pieces;;Concert
+;800001;The Grand Little y Tour;A005;GrandLittle;GWY;;x;y;pieces;;Concert
+
+
+# Insert Products
+INSERT_UPDATE Concert;code[unique=true];name;date[dateformat=dd.MM.yyyy];venue;concertType(code);baseProduct(code);variantType(code);$supercategories;$catalogVersion;$approved
+;20170101;Grand Tour - Munich;03.05.2023;"Munich, Germany";openair;201701;ConcertTicket;concerts;
+;20170102;Grand Tour - London;21.03.2023;"London, UK";openair;201701;ConcertTicket;concerts;
+;20170103;Grand Tour - Montreal;15.06.2023;"Montreal, Canada";indoor;201701;ConcertTicket;concerts;
+;20170104;Grand Tour - Gliwice;04.11.2022;"Gliwice, Poland";indoor;201701;ConcertTicket;concerts;
+;20170105;Grand Tour - Boulder;07.01.2023;"Boulder, USA";indoor;201701;ConcertTicket;concerts;
+;20170106;Grand Tour - Boston;;"Boston, USA";;201701;ConcertTicket;concerts;
+;80000101;Grand Little Tour - Weilheim;01.01.2023;"Weilheim, Oberbayern";indoor;800001;ConcertTicket;concerts;
+;80000102;Grand Little Tour - Rosenheim;02.01.2023;"Rosenheim, Oberbayern";indoor;800001;ConcertTicket;concerts;
+
+# Insert Products
+INSERT_UPDATE ConcertTicket;code[unique=true];name;baseProduct(code);priceCategory(code);$catalogVersion;$approved
+;2017010101;Grand Tour - Munich;20170101;GA;
+;2017010102;Grand Tour - Munich;20170101;CATI;
+;2017010103;Grand Tour - Munich;20170101;CATII;
+;2017010104;Grand Tour - Munich;20170101;CATIII;
+;2017010201;Grand Tour - London;20170102;GA;
+;2017010202;Grand Tour - London;20170102;CATI;
+;2017010203;Grand Tour - London;20170102;CATII;
+;8000010101;Grand Little Tour - Weilheim;80000101;GA
+;8000010102;Grand Little Tour - Weilheim;80000101;CATI
+;8000010201;Grand Little Tour - Rosenheimheim;80000102;GA
+
+
+#;2017010101;Grand Tour - Munich, General Admission;20170101;GA;
+#;2017010102;Grand Tour - Munich, Category I;20170101;CATI;
+#;2017010103;Grand Tour - Munich, Category II;20170101;CATII;
+#;2017010104;Grand Tour - Munich, Category III;20170101;CATIII;
+#;2017010201;Grand Tour - London, General Admission;20170102;GA;
+#;2017010202;Grand Tour - London, Category I;20170102;CATI;
+#;2017010203;Grand Tour - London, Category II;20170102;CATII;

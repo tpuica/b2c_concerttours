@@ -1,0 +1,13 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Categories into Apparel Store
+
+# Macros / Replacement Parameter definitions
+$catalogVersion=catalogVersion(catalog(id[default='apparelProductCatalog']),version[default='Staged'])[unique=true,default='apparelProductCatalog:Staged']
+$categories=target(code, $catalogVersion)[unique=true]
+$supercategories=source(code, $catalogVersion)[unique=true]
+
+# Insert Categories
+INSERT_UPDATE Category;code[unique=true];$catalogVersion;supercategories(code,$catalogVersion);allowedPrincipals(uid)[default='customergroup']
+;concerts;;categories;

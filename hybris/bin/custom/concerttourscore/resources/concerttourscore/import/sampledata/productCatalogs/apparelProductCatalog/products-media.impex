@@ -1,0 +1,41 @@
+
+# ImpEx for Importing Product Medias into Apparel Store
+
+# Macros / Replacement Parameter definitions
+$productCatalog=apparelProductCatalog
+$productCatalogName=Apparel Product Catalog
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$media=@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator]
+$siteResource=jar:de.stripedgiraffe.concerttours.core.constants.ConcerttoursCoreConstants&/concerttourscore/import/sampledata/productCatalogs/$productCatalog
+$thumbnail=thumbnail(code, $catalogVersion)
+$picture=picture(code, $catalogVersion)
+$thumbnails=thumbnails(code, $catalogVersion)
+$detail=detail(code, $catalogVersion)
+$normal=normal(code, $catalogVersion)
+$others=others(code, $catalogVersion)
+$medias=medias(code, $catalogVersion)
+$galleryImages=galleryImages(qualifier, $catalogVersion)
+
+# Create medias
+INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];$media;mime[default='image/jpeg'];$catalogVersion;folder(qualifier)
+;300Wx300H;/300Wx300H/yRock-small.jpg;$siteResource/images/300Wx300H/yRock-small.jpg;;;images
+;300Wx300H;/300Wx300H/kraftwerk-small.jpg;$siteResource/images/300Wx300H/kraftwerk-small.jpg;;;images
+;515Wx515H;/515Wx515H/yRock-big.jpg;$siteResource/images/515Wx515H/yRock-big.jpg;;;images
+;515Wx515H;/515Wx515H/kraftwerk-big.jpg;$siteResource/images/515Wx515H/kraftwerk-big.jpg;;;images
+
+
+INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$catalogVersion
+;yRockImage;/300Wx300H/yRock-small.jpg,/515Wx515H/yRock-big.jpg;
+;kraftwerkImage;/300Wx300H/kraftwerk-small.jpg,/515Wx515H/kraftwerk-big.jpg;
+
+
+UPDATE Concert;code[unique=true];$picture;$thumbnail;$others;$normal;$thumbnails;$catalogVersion;$galleryImages
+;20170101;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/515Wx515H/yRock-big.jpg,/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;;
+;20170102;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/515Wx515H/yRock-big.jpg,/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;;
+;20170103;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/515Wx515H/yRock-big.jpg,/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;;
+;20170104;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/515Wx515H/yRock-big.jpg,/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;;
+;20170105;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/515Wx515H/yRock-big.jpg,/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;;
+;20170106;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/515Wx515H/yRock-big.jpg,/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;;
+
+;80000101;/300Wx300H/kraftwerk-small.jpg;/300Wx300H/kraftwerk-small.jpg;/515Wx515H/kraftwerk-big.jpg,/300Wx300H/kraftwerk-small.jpg;/300Wx300H/kraftwerk-small.jpg;/300Wx300H/kraftwerk-small.jpg;;
+;80000102;/300Wx300H/kraftwerk-small.jpg;/300Wx300H/kraftwerk-small.jpg;/515Wx515H/kraftwerk-big.jpg,/300Wx300H/kraftwerk-small.jpg;/300Wx300H/kraftwerk-small.jpg;/300Wx300H/kraftwerk-small.jpg;;

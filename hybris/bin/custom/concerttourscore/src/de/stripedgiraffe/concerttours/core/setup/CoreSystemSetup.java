@@ -33,7 +33,10 @@ public class CoreSystemSetup extends AbstractSystemSetup
 {
 	public static final String IMPORT_ACCESS_RIGHTS = "accessRights";
 
-	public static final String ELECTRONICS = "electronics";
+	//public static final String ELECTRONICS = "electronics";
+	public static final String APPAREL = "apparel";
+	public static final String APPAREL_UK = "apparel-uk";
+	public static final String APPAREL_DE = "apparel-de";
 
 	private static final String IMPORT_CORE_DATA = "importCoreData";
 	private static final String IMPORT_SAMPLE_DATA = "importSampleData";
@@ -106,11 +109,17 @@ public class CoreSystemSetup extends AbstractSystemSetup
 
 		final List<ImportData> importData = new ArrayList<ImportData>();
 
-		final ImportData electronicsImportData = new ImportData();
-		electronicsImportData.setProductCatalogName(ELECTRONICS);
-		electronicsImportData.setContentCatalogNames(Arrays.asList(ELECTRONICS));
-		electronicsImportData.setStoreNames(Arrays.asList(ELECTRONICS));
-		importData.add(electronicsImportData);
+		//final ImportData electronicsImportData = new ImportData();
+		//electronicsImportData.setProductCatalogName(ELECTRONICS);
+		//electronicsImportData.setContentCatalogNames(Arrays.asList(ELECTRONICS));
+		//electronicsImportData.setStoreNames(Arrays.asList(ELECTRONICS));
+		//importData.add(electronicsImportData);
+
+		final ImportData apparelImportData = new ImportData();
+		apparelImportData.setProductCatalogName(APPAREL);
+		apparelImportData.setContentCatalogNames(Arrays.asList(APPAREL_UK, APPAREL_DE));
+		apparelImportData.setStoreNames(Arrays.asList(APPAREL_UK, APPAREL_DE));
+		importData.add(apparelImportData);
 
 		// getCoreDataImportService().execute(this, context, importData);
 		// getEventService().publishEvent(new CoreDataImportedEvent(context, importData));

@@ -1,0 +1,21 @@
+$contentCatalog=apparel-ukContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+#$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+
+$productCatalog=apparelProductCatalog
+$productCatalogName=Apparel Product Catalog
+$productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+#$productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Online'])[unique=true,default=$productCatalog:Online]
+
+
+## level 4 -- Brands, Streetwear menu etc. : children of ApparelUKCategoryNavNode ##
+INSERT_UPDATE CMSNavigationNode;uid[unique=true];$contentCV[unique=true];name;parent(uid, $contentCV);links(&linkRef);&nodeRef
+;ConcertsNavNode;;Concerts Menu;ApparelUKCategoryNavNode;;ConcertsNavNode
+
+# entries of the above navigation nodes
+INSERT_UPDATE CMSNavigationEntry;uid[unique=true];$contentCV[unique=true];name;navigationNode(&nodeRef);item(CMSLinkComponent.uid,CMSLinkComponent.$contentCV);
+;ConcertsNavNodeEntry;;Concerts Navigation Node Entry;ConcertsNavNode;ConcertsCategoryLink;
+
+# links of the above navigation entries
+INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url;category(code, $productCV);target(code)[default='sameWindow'];;
+;;ConcertsCategoryLink;Concerts Category Link;;concerts;;;

@@ -1,0 +1,26 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+#******************************This file is generated - please do not edit it. It will be regenerated after every build.********************************#
+#
+#	ImpEx for Apparel DE Site CMS Content, de localisations
+#
+
+$contentCatalog=apparel-ukContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+#$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Online])[default=$contentCatalog:Online]
+$productCatalog=apparelProductCatalog
+$productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+#$productCV=catalogVersion(catalog(id[default=$productCatalog]),version[default='Online'])[unique=true,default=$productCatalog:Online]
+
+
+# Language
+$lang=en
+
+# CMS Link Components
+UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];linkName[lang=$lang]
+;;ConcertsCategoryLink;"Concerts"
+
+# CMS Navigation Nodes
+UPDATE CMSNavigationNode;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
+;;ConcertsNavNode;"Concerts"

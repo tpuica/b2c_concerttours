@@ -1,0 +1,42 @@
+# Macros / Replacement Parameter definitions
+$productCatalog=electronicsProductCatalog
+$productCatalogName=Electronics Product Catalog
+#$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Online'])[unique=true,default=$productCatalog:Online]
+$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+$supercategories=supercategories(code, $catalogVersion)
+$baseProduct=baseProduct(code,$catalogVersion)
+$approved=approvalstatus(code)[default='approved']
+
+
+INSERT_UPDATE Band;code[unique=true];name;albumSales;
+;A001;yRock;1000000;
+;A006;yBand;;
+;A003;yJazz;7;
+;A004;Banned;427;
+;A002;Sirken;2000;
+;A005;The Choir;49000;
+;A007;The Quiet;1200;
+
+# Insert Products
+#INSERT_UPDATE Product;code[unique=true];name;band(code);hashtag[lang=en];hashtag[lang=de];$supercategories;manufacturerName;manufacturerAID;unit(code);ean;variantType(code);$catalogVersion;$approved
+#;201701;The Grand Little x Tour;A001;GrandLittle;GrossWenig;;x;y;pieces;;Concert
+
+
+# Insert Products
+#INSERT_UPDATE Concert;code[unique=true];name;date[dateformat=dd.MM.yyyy];venue;concertType(code);baseProduct(code);variantType(code);$supercategories;$catalogVersion;$approved
+#;20170101;Grand Tour - Munich;03.05.2023;"hybris Munich, Germany";openair;201701;ConcertTicket;306
+#;20170102;Grand Tour - London;21.03.2023;"hybris London, UK";openair;201701;ConcertTicket;306
+#;20170103;Grand Tour - Montreal;15.06.2023;"hybris Montreal, Canada";indoor;201701;ConcertTicket;306
+#;20170104;Grand Tour - Gliwice;04.11.2022;"hybris Gliwice, Poland";indoor;201701;ConcertTicket;306
+#;20170105;Grand Tour - Boulder;07.01.2023;"hybris Boulder, USA";indoor;201701;ConcertTicket;306
+#;20170106;Grand Tour - Boston;;"hybris Boston, USA";;201701;ConcertTicket;306
+
+# Insert Products
+#INSERT_UPDATE ConcertTicket;code[unique=true];name;baseProduct(code);priceCategory(code);$catalogVersion;$approved
+#;2017010101;Grand Tour - Munich;20170101;GA;
+#;2017010102;Grand Tour - Munich;20170101;CATI;
+#;2017010103;Grand Tour - Munich;20170101;CATII;
+#;2017010104;Grand Tour - Munich;20170101;CATIII;
+#;2017010201;Grand Tour - London;20170102;GA;
+#;2017010202;Grand Tour - London;20170102;CATI;
+#;2017010203;Grand Tour - London;20170102;CATII;
