@@ -105,8 +105,8 @@ def platform = platform {
             extName 'b2bcommercebackoffice'
             extName 'b2bcommercefacades'
         // b2c-accelerator
-		//   extName 'apparelstore'
-           extName 'electronicsstore'
+		   extName 'apparelstore'
+        //   extName 'electronicsstore'
         // b2c-accelerator-addons
             extName 'captchaaddon'
             // extName 'hybrisanalyticsaddon'
