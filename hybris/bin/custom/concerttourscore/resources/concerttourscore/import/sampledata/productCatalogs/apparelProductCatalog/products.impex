@@ -17,22 +17,42 @@ $taxGroup=Europe1PriceFactory_PTG(code)[default=eu-vat-full]
 # ApparelProduct > ApparelStyleVariantProduct > ApparelSizeVariantProduct
 # Apparel products may have no variations, only colour (style) variations or both colour and size variations.
 
-# Insert Products
-INSERT_UPDATE Product;code[unique=true];name;band(code);hashtag[lang=en];hashtag[lang=de];$supercategories;manufacturerName;manufacturerAID;unit(code);ean;variantType(code);$catalogVersion;$approved
-;201701;The Grand Little x Tour;A001;GrandLittle;GrossWenig;;x;y;pieces;;Concert
-;800001;The Grand Little y Tour;A005;GrandLittle;GWY;;x;y;pieces;;Concert
+# Bands
+INSERT_UPDATE Band;code[unique=true];name;albumSales;
+;A001;yRock;1000000;
+;A006;yBand;;
+;A003;yJazz;7;
+;A004;Banned;427;
+;A002;Sirken;2000;
+;A005;The Choir;49000;
+;A007;The Quiet;1200;
 
+# Insert Products (Tours)
+INSERT_UPDATE Product;code[unique=true];name;band(code);hashtag[lang=en];hashtag[lang=de];$supercategories;manufacturerName;manufacturerAID;unit(code);ean;$catalogVersion;$approved
+;201701;The Grand Little x Tour;A001;GrandLittle;GrossWenig;;x;y;pieces;
+;800001;The Grand Little y Tour;A005;GrandLittle;GWY;;x;y;pieces;
 
 # Insert Products
-INSERT_UPDATE Concert;code[unique=true];name;date[dateformat=dd.MM.yyyy];venue;concertType(code);baseProduct(code);variantType(code);$supercategories;$catalogVersion;$approved
-;20170101;Grand Tour - Munich;03.05.2023;"Munich, Germany";openair;201701;ConcertTicket;concerts;
-;20170102;Grand Tour - London;21.03.2023;"London, UK";openair;201701;ConcertTicket;concerts;
-;20170103;Grand Tour - Montreal;15.06.2023;"Montreal, Canada";indoor;201701;ConcertTicket;concerts;
-;20170104;Grand Tour - Gliwice;04.11.2022;"Gliwice, Poland";indoor;201701;ConcertTicket;concerts;
-;20170105;Grand Tour - Boulder;07.01.2023;"Boulder, USA";indoor;201701;ConcertTicket;concerts;
-;20170106;Grand Tour - Boston;;"Boston, USA";;201701;ConcertTicket;concerts;
-;80000101;Grand Little Tour - Weilheim;01.01.2023;"Weilheim, Oberbayern";indoor;800001;ConcertTicket;concerts;
-;80000102;Grand Little Tour - Rosenheim;02.01.2023;"Rosenheim, Oberbayern";indoor;800001;ConcertTicket;concerts;
+#INSERT_UPDATE Concert;code[unique=true];name;date[dateformat=dd.MM.yyyy];venue;concertType(code);baseProduct(code);variantType(code);$supercategories;$catalogVersion;$approved
+#                     ;20170101;Grand Tour - Munich;03.05.2023;"Munich, Germany";openair;201701;ConcertTicket;concerts;
+#                     ;20170102;Grand Tour - London;21.03.2023;"London, UK";openair;201701;ConcertTicket;concerts;
+#                     ;20170103;Grand Tour - Montreal;15.06.2023;"Montreal, Canada";indoor;201701;ConcertTicket;concerts;
+#                     ;20170104;Grand Tour - Gliwice;04.11.2022;"Gliwice, Poland";indoor;201701;ConcertTicket;concerts;
+#                     ;20170105;Grand Tour - Boulder;07.01.2023;"Boulder, USA";indoor;201701;ConcertTicket;concerts;
+#                     ;20170106;Grand Tour - Boston;;"Boston, USA";;201701;ConcertTicket;concerts;
+#                     ;80000101;Grand Little Tour - Weilheim;01.01.2023;"Weilheim, Oberbayern";indoor;800001;ConcertTicket;concerts;
+#                     ;80000102;Grand Little Tour - Rosenheim;02.01.2023;"Rosenheim, Oberbayern";indoor;800001;ConcertTicket;concerts;
+
+# Insert Products
+INSERT_UPDATE Concert;code[unique=true];name;date[dateformat=dd.MM.yyyy];venue;concertType(code);variantType(code);$supercategories;$catalogVersion;$approved
+;20170101;Grand Tour - Munich;03.05.2023;"Munich, Germany";openair;ConcertTicket;concerts;
+;20170102;Grand Tour - London;21.03.2023;"London, UK";openair;ConcertTicket;concerts;
+;20170103;Grand Tour - Montreal;15.06.2023;"Montreal, Canada";indoor;ConcertTicket;concerts;
+;20170104;Grand Tour - Gliwice;04.11.2022;"Gliwice, Poland";indoor;ConcertTicket;concerts;
+;20170105;Grand Tour - Boulder;07.01.2023;"Boulder, USA";indoor;ConcertTicket;concerts;
+;20170106;Grand Tour - Boston;;"Boston, USA";;ConcertTicket;concerts;
+;80000101;Grand Little Tour - Weilheim;01.01.2023;"Weilheim, Oberbayern";indoor;ConcertTicket;concerts;
+;80000102;Grand Little Tour - Rosenheim;02.01.2023;"Rosenheim, Oberbayern";indoor;ConcertTicket;concerts;
 
 # Insert Products
 INSERT_UPDATE ConcertTicket;code[unique=true];name;baseProduct(code);priceCategory(code);$catalogVersion;$approved

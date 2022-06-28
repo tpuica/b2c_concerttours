@@ -7,7 +7,7 @@
 				
 				
 	<classpathentry exported="true" kind="src" path="/acceleratorcms" />
-	<classpathentry exported="true" kind="src" path="/electronicsstore" />
+	<classpathentry exported="true" kind="src" path="/apparelstore" />
 	<classpathentry exported="true" kind="lib" path="resources" />
 	<classpathentry exported="true" output="eclipsebin/classes" kind="src" path="src" />
 	<classpathentry exported="true" output="eclipsebin/classes" kind="src" path="testsrc" />

@@ -8,14 +8,14 @@ $baseProduct=baseProduct(code,$catalogVersion)
 $approved=approvalstatus(code)[default='approved']
 
 
-INSERT_UPDATE Band;code[unique=true];name;albumSales;
-;A001;yRock;1000000;
-;A006;yBand;;
-;A003;yJazz;7;
-;A004;Banned;427;
-;A002;Sirken;2000;
-;A005;The Choir;49000;
-;A007;The Quiet;1200;
+#INSERT_UPDATE Band;code[unique=true];name;albumSales;
+#;A001;yRock;1000000;
+#;A006;yBand;;
+#;A003;yJazz;7;
+#;A004;Banned;427;
+#;A002;Sirken;2000;
+#;A005;The Choir;49000;
+#;A007;The Quiet;1200;
 
 # Insert Products
 #INSERT_UPDATE Product;code[unique=true];name;band(code);hashtag[lang=en];hashtag[lang=de];$supercategories;manufacturerName;manufacturerAID;unit(code);ean;variantType(code);$catalogVersion;$approved
