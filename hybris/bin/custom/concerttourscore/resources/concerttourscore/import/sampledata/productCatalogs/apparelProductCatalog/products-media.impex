@@ -18,24 +18,24 @@ $galleryImages=galleryImages(qualifier, $catalogVersion)
 
 # Create medias
 INSERT_UPDATE Media;mediaFormat(qualifier);code[unique=true];$media;mime[default='image/jpeg'];$catalogVersion;folder(qualifier)
-;300Wx300H;/300Wx300H/yRock-small.jpg;$siteResource/images/300Wx300H/yRock-small.jpg;;;images
-;300Wx300H;/300Wx300H/kraftwerk-small.jpg;$siteResource/images/300Wx300H/kraftwerk-small.jpg;;;images
-;515Wx515H;/515Wx515H/yRock-big.jpg;$siteResource/images/515Wx515H/yRock-big.jpg;;;images
-;515Wx515H;/515Wx515H/kraftwerk-big.jpg;$siteResource/images/515Wx515H/kraftwerk-big.jpg;;;images
+;300Wx300H;/300Wx300H/yRock.jpg;$siteResource/images/300Wx300H/yRock.jpg;;;images
+;300Wx300H;/300Wx300H/kraftwerk.jpg;$siteResource/images/300Wx300H/kraftwerk.jpg;;;images
+;515Wx515H;/515Wx515H/yRock.jpg;$siteResource/images/515Wx515H/yRock.jpg;;;images
+;515Wx515H;/515Wx515H/kraftwerk.jpg;$siteResource/images/515Wx515H/kraftwerk.jpg;;;images
 
 
 INSERT_UPDATE MediaContainer;qualifier[unique=true];$medias;$catalogVersion
-;yRockImage;/300Wx300H/yRock-small.jpg,/515Wx515H/yRock-big.jpg;
-;kraftwerkImage;/300Wx300H/kraftwerk-small.jpg,/515Wx515H/kraftwerk-big.jpg;
+;yRockImage;/515Wx515H/yRock.jpg,/300Wx300H/yRock.jpg;
+;kraftwerkImage;/515Wx515H/kraftwerk.jpg,/300Wx300H/kraftwerk.jpg;
 
 
 UPDATE Concert;code[unique=true];$picture;$thumbnail;$others;$normal;$thumbnails;$catalogVersion;$galleryImages
-;20170101;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/515Wx515H/yRock-big.jpg,/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;;
-;20170102;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/515Wx515H/yRock-big.jpg,/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;;
-;20170103;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/515Wx515H/yRock-big.jpg,/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;;
-;20170104;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/515Wx515H/yRock-big.jpg,/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;;
-;20170105;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/515Wx515H/yRock-big.jpg,/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;;
-;20170106;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/515Wx515H/yRock-big.jpg,/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;/300Wx300H/yRock-small.jpg;;
+;20170101;/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;/515Wx515H/yRock.jpg,/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;;yRockImage
+;20170102;/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;/515Wx515H/yRock.jpg,/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;;yRockImage
+;20170103;/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;/515Wx515H/yRock.jpg,/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;;yRockImage
+;20170104;/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;/515Wx515H/yRock.jpg,/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;;yRockImage
+;20170105;/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;/515Wx515H/yRock.jpg,/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;;yRockImage
+;20170106;/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;/515Wx515H/yRock.jpg,/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;/300Wx300H/yRock.jpg;;yRockImage
 
-;80000101;/300Wx300H/kraftwerk-small.jpg;/300Wx300H/kraftwerk-small.jpg;/515Wx515H/kraftwerk-big.jpg,/300Wx300H/kraftwerk-small.jpg;/300Wx300H/kraftwerk-small.jpg;/300Wx300H/kraftwerk-small.jpg;;
-;80000102;/300Wx300H/kraftwerk-small.jpg;/300Wx300H/kraftwerk-small.jpg;/515Wx515H/kraftwerk-big.jpg,/300Wx300H/kraftwerk-small.jpg;/300Wx300H/kraftwerk-small.jpg;/300Wx300H/kraftwerk-small.jpg;;
+;80000101;/300Wx300H/kraftwerk.jpg;/300Wx300H/kraftwerk.jpg;/515Wx515H/kraftwerk.jpg,/300Wx300H/kraftwerk.jpg;/300Wx300H/kraftwerk.jpg;/300Wx300H/kraftwerk.jpg;;kraftwerkImage
+;80000102;/300Wx300H/kraftwerk.jpg;/300Wx300H/kraftwerk.jpg;/515Wx515H/kraftwerk.jpg,/300Wx300H/kraftwerk.jpg;/300Wx300H/kraftwerk.jpg;/300Wx300H/kraftwerk.jpg;;kraftwerkImage
