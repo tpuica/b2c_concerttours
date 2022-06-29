@@ -1,0 +1,29 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+#
+# Import the Solr configuration for the Apparel UK store
+#
+$productCatalog=apparelProductCatalog
+$catalogVersions=catalogVersions(catalog(id),version);
+$facetSearchConfigName=apparel-ukIndex
+$facetSearchConfigDescription=Apparel UK Solr Index
+$searchIndexNamePrefix=apparel-uk
+$solrIndexedType=apparel-ukProductType
+$indexBaseSite=apparel-uk
+$indexLanguages=en
+$indexCurrencies=GBP
+#
+# Setup the indexed types, their properties, and the update queries
+#
+
+# Non-facet properties
+INSERT_UPDATE SolrIndexedProperty;solrIndexedType(identifier)[unique=true];name[unique=true];type(code);sortableType(code);currency[default=false];localized[default=false];multiValue[default=false];facet[default=true];facetType(code);facetSort(code);priority;visible;useForSpellchecking[default=false];useForAutocomplete[default=false];fieldValueProvider;facetDisplayNameProvider;customFacetSortProvider;topValuesProvider;rangeSets(name)
+;$solrIndexedType; priceCategory    ;string ;            ;     ;true;    ; ;MultiSelectOr ;      ; 2000;true;    ;    ;optionalModelPropertyFieldValueProvider;                                             ;                             ;
+#;$solrIndexedType; size             ;string ;            ;     ;true;    ; ;MultiSelectOr ;Custom; 2000;true;    ;    ;optionalModelPropertyFieldValueProvider;                                             ;sizeAttributeSortProvider    ;
+
+# Other search query facets
+INSERT_UPDATE SolrSearchQueryProperty;indexedProperty(name, solrIndexedType(identifier))[unique=true];facet[default=true];facetType(code);priority;facetDisplayNameProvider;facetSortProvider;facetTopValuesProvider;includeInResponse[default=true];searchQueryTemplate(name, indexedType(identifier))[unique=true][default=DEFAULT:$solrIndexedType]
+;priceCategory:$solrIndexedType											 ;					 ;MultiSelectOr	 ;2000	  ;						   						;                        	  ;				  			;;
+#;size:$solrIndexedType											         ;					 ;MultiSelectOr	 ;2000	  ;						   						;sizeAttributeSortProvider	  ;				  			;;
+
