@@ -44,14 +44,14 @@ INSERT_UPDATE Concert;code[unique=true];name;date[dateformat=dd.MM.yyyy];venue;c
 ;80000102;Grand Little Tour - Rosenheim;02.01.2023;"Rosenheim, Oberbayern";indoor;ConcertTicket;concerts;
 
 # Insert Products
-INSERT_UPDATE ConcertTicket;code[unique=true];name;baseProduct(code);priceCategory(code);$catalogVersion;$approved
-;2017010101;Grand Tour - Munich;20170101;GA;
-;2017010102;Grand Tour - Munich;20170101;CATI;
-;2017010103;Grand Tour - Munich;20170101;CATII;
-;2017010104;Grand Tour - Munich;20170101;CATIII;
-;2017010201;Grand Tour - London;20170102;GA;
-;2017010202;Grand Tour - London;20170102;CATI;
-;2017010203;Grand Tour - London;20170102;CATII;
-;8000010101;Grand Little Tour - Weilheim;80000101;GA
-;8000010102;Grand Little Tour - Weilheim;80000101;CATI
-;8000010201;Grand Little Tour - Rosenheimheim;80000102;GA
+INSERT_UPDATE ConcertTicket;code[unique=true];name;baseProduct(code);$catalogVersion;$approved
+;2017010101;Grand Tour - Munich;20170101;
+;2017010102;Grand Tour - Munich;20170101;
+;2017010103;Grand Tour - Munich;20170101;
+;2017010104;Grand Tour - Munich;20170101;
+;2017010201;Grand Tour - London;20170102;
+;2017010202;Grand Tour - London;20170102;
+;2017010203;Grand Tour - London;20170102;
+;8000010101;Grand Little Tour - Weilheim;80000101;
+;8000010102;Grand Little Tour - Weilheim;80000101;
+;8000010201;Grand Little Tour - Rosenheimheim;80000102;

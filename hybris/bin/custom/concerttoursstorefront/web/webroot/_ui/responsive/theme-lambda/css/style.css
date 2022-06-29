@@ -10417,6 +10417,77 @@ fieldset[disabled] .btn-primary.active {
   color: #999;
   cursor: not-allowed;
 }
+.variant-section .variant-selector .concerttours-variant-list {
+  padding-left: 0;
+  list-style: none;
+  margin-left: -20px;
+}
+.variant-section .variant-selector .concerttours-variant-list:before,
+.variant-section .variant-selector .concerttours-variant-list:after {
+  content: " ";
+  display: table;
+}
+.variant-section .variant-selector .concerttours-variant-list:after {
+  clear: both;
+}
+.variant-section .variant-selector .concerttours-variant-list:before,
+.variant-section .variant-selector .concerttours-variant-list:after {
+  content: " ";
+  display: table;
+}
+.variant-section .variant-selector .concerttours-variant-list:after {
+  clear: both;
+}
+.variant-section .variant-selector .concerttours-variant-list li {
+  float: left;
+  margin: 0 0 7px 20px;
+}
+.variant-section .variant-selector .concerttours-variant-list li a,
+.variant-section .variant-selector .concerttours-variant-list li span {
+  float: none;
+  height: 32px;
+  width: 350px;
+  line-height: initial;
+  text-align: left;
+  text-transform: uppercase;
+  padding: 5px;
+  border: 1px solid #cccccc;
+  background: #fff;
+  color: #19212b;
+  font-weight: bold;
+  text-decoration: none;
+}
+@media (max-width: 1023px) {
+  .variant-section .variant-selector .concerttours-variant-list li a,
+  .variant-section .variant-selector .concerttours-variant-list li span {
+    height: 42px;
+    width: 42px;
+    line-height: 42px;
+  }
+}
+.variant-section .variant-selector .concerttours-variant-list li a img,
+.variant-section .variant-selector .concerttours-variant-list li span img {
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+  border: 1px solid transparent;
+}
+.variant-section .variant-selector .concerttours-variant-list li:hover a,
+.variant-section .variant-selector .concerttours-variant-list li.active a {
+  background: lightgrey;
+  -webkit-box-shadow: inset 0 0  0 1px #fff;
+  box-shadow: inset 0 0  0 1px #fff;
+  border: 1px solid #47b6b1;
+  color: #fff;
+}
+.variant-section .variant-selector .concerttours-variant-list li:hover a img,
+.variant-section .variant-selector .concerttours-variant-list li.active a img {
+  border: 1px solid #fff;
+}
+.variant-section .variant-selector .concerttours-variant-list li.disabled span {
+  color: #999;
+  cursor: not-allowed;
+}
 .variant-section .variant-selector .variant-select {
   margin: 10px 0 0;
 }

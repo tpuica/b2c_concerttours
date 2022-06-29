@@ -17,15 +17,6 @@
 			<value code="indoor" />
 		</enumtype>
 		
-		<enumtype code="ConcertTicketPriceCategory" autocreate="true" generate="true" dynamic="false">
-			<value code="GA" />
-			<value code="CATI" />
-			<value code="CATII" />
-			<value code="CATIII" />
-			<value code="CATIV" />
-			<value code="CATV" />
-		</enumtype>
-		
 		<enumtype code="MusicType" autocreate="true" generate="true" dynamic="true" />
 		
         <enumtype generate="true" code="SwatchColorEnum" autocreate="true" dynamic="true">
@@ -132,7 +123,7 @@
 			<itemtype generate="true" code="ConcertTicket" extends="VariantProduct" autocreate="true" >
 			    <description>Concert Ticket variant.</description>
                 <attributes>
-                    <attribute qualifier="priceCategory" type="ConcertTicketPriceCategory"
+                    <attribute qualifier="priceCategory" type="localized:java.lang.String"
 							   metatype="VariantAttributeDescriptor">
                         <description>Price Category of the product.</description>
                         <modifiers/>

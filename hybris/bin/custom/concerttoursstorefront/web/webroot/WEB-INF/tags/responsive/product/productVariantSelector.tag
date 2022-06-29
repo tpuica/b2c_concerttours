@@ -90,20 +90,18 @@
             <c:set var="variantStyles" value="${product.variantOptions}"/>
             <c:set var="tourConcerts" value="${variantStyles}"/>
         </c:if>
-        <c:if test="${(not empty product.baseOptions[0].options) and (product.baseOptions[0].variantType eq 'Concert')}">
+        <c:if test="${(not empty product.baseOptions[0].options) and (product.baseOptions[0].variantType eq 'ConcertTicket')}">
             <c:set var="variantStyles" value="${product.baseOptions[0].options}"/>
-            <c:set var="tourConcerts" value="${variantStyles}"/>
-            <c:set var="variantSizes" value="${product.variantOptions}"/>
-            <c:set var="ticketTypes" value="${variantSizes}"/>
+            <c:set var="ticketTypes" value="${variantStyles}"/>
             <c:set var="currentStyleUrl" value="${product.url}"/>
         </c:if>
-        <c:if test="${(not empty product.baseOptions[1].options) and (product.baseOptions[0].variantType eq 'ConcertTicket')}">
+        <%-- <c:if test="${(not empty product.baseOptions[1].options) and (product.baseOptions[0].variantType eq 'ConcertTicket')}">
             <c:set var="variantStyles" value="${product.baseOptions[1].options}"/>
             <c:set var="tourConcerts" value="${variantStyles}"/>
             <c:set var="variantSizes" value="${product.baseOptions[0].options}"/>
             <c:set var="ticketTypes" value="${variantSizes}"/>
             <c:set var="currentStyleUrl" value="${product.baseOptions[1].selected.url}"/>
-        </c:if>
+        </c:if> --%>
         <%-- END --%>
 
         <c:url value="${currentStyleUrl}" var="currentStyledProductUrl"/>
@@ -117,7 +115,7 @@
             </c:if>
         </c:if>
 
-        <c:set var="isConcertTour" value="${not empty tourConcerts or not empty ticketTypes}" />
+        <c:set var="isConcertTour" value="${not empty ticketTypes}" />
         <c:set var="isApparel" value="${not isConcertTour and (not empty variantStyles or not empty variantSizes)}" />
 
         <c:if test="${isConcertTour}">
@@ -130,41 +128,12 @@
                 </c:otherwise>
             </c:choose>
             <div class="variant-section">
-                <c:if test="${not empty tourConcerts}">
-                    <div class="variant-selector">
-                        <div class="variant-name">
-                            <spring:theme code="product.variants.venue"/><span
-                                class="variant-selected styleName"></span>
-                        </div>
-                        <ul class="variant-list concerttours-variant-list">
-                            <c:forEach items="${tourConcerts}" var="tourConcert">
-                                <c:forEach items="${tourConcert.variantOptionQualifiers}" var="variantOptionQualifier">
-                                    <c:if test="${variantOptionQualifier.qualifier eq 'venue'}">
-                                        <c:set var="venue" value="${variantOptionQualifier.value}"/>
-                                    </c:if>
-                                </c:forEach>
-                                <li <c:if test="${tourConcert.url eq currentStyleUrl}"> class="active"</c:if>>
-                                    <c:if test="${tourConcert.url eq currentStyleUrl}">
-                                        <div id="currentStyleValue" data-style-value="${styleValueHtml}"></div>
-                                    </c:if>
-                                    <c:url value="${tourConcert.url}" var="productStyleUrl"/>
-                                    <a href="${fn:escapeXml(productStyleUrl)}" class="colorVariant" name="${fn:escapeXml(tourConcert.url)}">
-                                        <c:out value="${venue}" />
-                                    </a>
-                                </li>
-                            </c:forEach>
-                        </ul>
-                    </div>
-                </c:if>
                 <c:if test="${not empty ticketTypes}">
                     <div class="variant-selector">
                         <div class="variant-name">
                             <label for="Size"><spring:theme code="product.variants.ticketCategory"/><span class="variant-selected sizeName"></span></label>
                         </div>
-                        <select id="Size" class="form-control variant-select" disabled="disabled">
-                            <c:if test="${empty ticketTypes}">
-                                <option selected="selected"><spring:theme code="product.variants.select.venue"/></option>
-                            </c:if>
+                        <select id="TicketType" class="form-control variant-select" disabled="disabled">
                             <c:if test="${not empty ticketTypes}">
                                 <option value="${fn:escapeXml(currentStyledProductUrl)}"
                                         <c:if test="${empty variantParams['priceCategory']}">selected="selected"</c:if>>
@@ -201,7 +170,7 @@
 
                                     <option value="${fn:escapeXml(variantOptionUrl)}" ${(ticketType.url eq product.url) ? 'selected="selected"' : ''}>
                                             ${optionsStringHtml}&nbsp;<format:price
-                                            priceData="${ticketType.priceData}"/>&nbsp;&nbsp;${fn:escapeXml(ticketType.stock.stockLevel)}
+                                            priceData="${ticketType.priceData}"/>&nbsp;&nbsp;(${fn:escapeXml(ticketType.stock.stockLevel)})
                                     </option>
                                 </c:forEach>
                             </c:if>
