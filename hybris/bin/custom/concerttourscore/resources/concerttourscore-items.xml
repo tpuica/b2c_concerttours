@@ -17,15 +17,6 @@
 			<value code="indoor" />
 		</enumtype>
 		
-		<enumtype code="ConcertTicketPriceCategory" autocreate="true" generate="true" dynamic="false">
-			<value code="GA" />
-			<value code="CATI" />
-			<value code="CATII" />
-			<value code="CATIII" />
-			<value code="CATIV" />
-			<value code="CATV" />
-		</enumtype>
-		
 		<enumtype code="MusicType" autocreate="true" generate="true" dynamic="true" />
 		
         <enumtype generate="true" code="SwatchColorEnum" autocreate="true" dynamic="true">
