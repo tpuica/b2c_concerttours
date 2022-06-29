@@ -28,13 +28,14 @@ UPDATE Product;code[unique=true];$catalogVersion;name[lang=$lang];summary[lang=$
 ;80000102;;The Choir - Grand Little Tour - Rosenheim;The Choir Experience 2023;This is the anniversary tour - 140 years of A capella barking and blue sound sensation machine
 
 # Tickets
-;2017010101;;yRock - Grand Tour - Munich;General Admisison Ticket;After 22 difficult years of COVID-19 pandemic the boys are back on stage and ready to rock your world. The wait is now over. So be there!
-;2017010102;;yRock - Grand Tour - Munich;Category I Ticket;After 22 difficult years of COVID-19 pandemic the boys are back on stage and ready to rock your world. The wait is now over. So be there!
-;2017010103;;yRock - Grand Tour - Munich;Category II Ticket;After 22 difficult years of COVID-19 pandemic the boys are back on stage and ready to rock your world. The wait is now over. So be there!
-;2017010104;;yRock - Grand Tour - Munich;Category III Ticket;After 22 difficult years of COVID-19 pandemic the boys are back on stage and ready to rock your world. The wait is now over. So be there!
-;2017010201;;yRock - Grand Tour - London;General Admisison Ticket;After 22 difficult years of COVID-19 pandemic the boys are back on stage and ready to rock your world. The wait is now over. So be there!
-;2017010202;;yRock - Grand Tour - London;Category I Ticket;After 22 difficult years of COVID-19 pandemic the boys are back on stage and ready to rock your world. The wait is now over. So be there!
-;2017010203;;yRock - Grand Tour - London;Category II Ticket;After 22 difficult years of COVID-19 pandemic the boys are back on stage and ready to rock your world. The wait is now over. So be there!
-;8000010101;;The Choir - Grand Little Tour - Weilheim;General Admisison Ticket;This is the anniversary tour - 140 years of A capella barking and blue sound sensation machine
-;8000010102;;The Choir - Grand Little Tour - Weilheim;Category I Ticket;This is the anniversary tour - 140 years of A capella barking and blue sound sensation machine
-;8000010201;;The Choir - Grand Little Tour - Rosenheim;General Admisison Ticket;This is the anniversary tour - 140 years of A capella barking and blue sound sensation machine
+UPDATE Product;code[unique=true];$catalogVersion;name[lang=$lang];summary[lang=$lang];description[lang=$lang];ConcertTicket.priceCategory[lang=$lang]
+;2017010101;;yRock - Grand Tour - Munich;General Admisison Ticket;After 22 difficult years of COVID-19 pandemic the boys are back on stage and ready to rock your world. The wait is now over. So be there!;General Admission
+;2017010102;;yRock - Grand Tour - Munich;Category I Ticket;After 22 difficult years of COVID-19 pandemic the boys are back on stage and ready to rock your world. The wait is now over. So be there!;Category 1
+;2017010103;;yRock - Grand Tour - Munich;Category II Ticket;After 22 difficult years of COVID-19 pandemic the boys are back on stage and ready to rock your world. The wait is now over. So be there!;Category 2
+;2017010104;;yRock - Grand Tour - Munich;Category III Ticket;After 22 difficult years of COVID-19 pandemic the boys are back on stage and ready to rock your world. The wait is now over. So be there!;Category 3
+;2017010201;;yRock - Grand Tour - London;General Admisison Ticket;After 22 difficult years of COVID-19 pandemic the boys are back on stage and ready to rock your world. The wait is now over. So be there!;General Admission
+;2017010202;;yRock - Grand Tour - London;Category I Ticket;After 22 difficult years of COVID-19 pandemic the boys are back on stage and ready to rock your world. The wait is now over. So be there!;Category 1
+;2017010203;;yRock - Grand Tour - London;Category II Ticket;After 22 difficult years of COVID-19 pandemic the boys are back on stage and ready to rock your world. The wait is now over. So be there!;Category 2
+;8000010101;;The Choir - Grand Little Tour - Weilheim;General Admisison Ticket;This is the anniversary tour - 140 years of A capella barking and blue sound sensation machine;General Admission
+;8000010102;;The Choir - Grand Little Tour - Weilheim;Category I Ticket;This is the anniversary tour - 140 years of A capella barking and blue sound sensation machine;Category 1
+;8000010201;;The Choir - Grand Little Tour - Rosenheim;General Admisison Ticket;This is the anniversary tour - 140 years of A capella barking and blue sound sensation machine;General Admission
