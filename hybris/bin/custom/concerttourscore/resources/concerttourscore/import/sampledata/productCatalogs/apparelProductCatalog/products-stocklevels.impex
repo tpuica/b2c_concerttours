@@ -1,0 +1,25 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Products stock levels into Apparel Store
+
+# Macros / Replacement Parameter definitions
+#$productCatalog=apparelProductCatalog
+#$productCatalogName=Apparel Product Catalog
+#$catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+#$vendor=apparello
+
+# Create Stock levels at the Warehouses for Products
+INSERT_UPDATE StockLevel;available[unique=true];warehouse(code)[unique=true];inStockStatus(code);maxPreOrder;maxStockLevelHistoryCount;overSelling;preOrder;productCode[unique=true];reserved
+#;0;ap_warehouse_s;notSpecified;0;0;0;0;35099;0
+;300;ap_warehouse_s;notSpecified;0;0;0;0;2017010101;0
+;200;ap_warehouse_s;notSpecified;0;0;0;0;2017010102;0
+;150;ap_warehouse_s;notSpecified;0;0;0;0;2017010103;0
+;50;ap_warehouse_s;notSpecified;0;0;0;0;2017010104;0
+;235;ap_warehouse_n;notSpecified;0;0;0;0;2017010201;0
+;99;ap_warehouse_n;notSpecified;0;0;0;0;2017010202;0
+;35;ap_warehouse_n;notSpecified;0;0;0;0;2017010203;0
+;235;ap_warehouse_w;notSpecified;0;0;0;0;8000010101;0
+;99;ap_warehouse_w;notSpecified;0;0;0;0;8000010102;0
+;1399;ap_warehouse_e;notSpecified;0;0;0;0;8000010201;0
+
