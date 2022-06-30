@@ -194,6 +194,11 @@
 		  parent="abstractPropertyFieldValueProvider">
 		<property name="fieldNameProvider" ref="solrFieldNameProvider"/>
 	</bean>
+	<bean id="bandValueProvider"
+		  class="de.stripedgiraffe.concerttours.core.search.solrfacetsearch.provider.impl.BandValueProvider"
+		  parent="abstractPropertyFieldValueProvider">
+		<property name="fieldNameProvider" ref="solrFieldNameProvider"/>
+	</bean>
 
 	<!--
 		Event listeners are singletons, therefore the dependency for a bean in tenant-scope

@@ -10,7 +10,10 @@ import de.hybris.platform.solrfacetsearch.provider.FieldNameProvider;
 import de.hybris.platform.solrfacetsearch.provider.FieldValue;
 import de.hybris.platform.solrfacetsearch.provider.FieldValueProvider;
 import de.hybris.platform.solrfacetsearch.provider.impl.AbstractPropertyFieldValueProvider;
-import de.stripedgiraffe.concerttours.core.model.*;
+import de.stripedgiraffe.concerttours.core.model.BandModel;
+import de.stripedgiraffe.concerttours.core.model.ConcertModel;
+import de.stripedgiraffe.concerttours.core.model.ConcertTicketModel;
+import de.stripedgiraffe.concerttours.core.model.TourModel;
 import org.springframework.beans.factory.annotation.Required;
 
 import java.util.ArrayList;
@@ -19,12 +22,12 @@ import java.util.Collections;
 import java.util.List;
 
 
-public class ConcertVenueValueProvider extends BasePropertyFieldValueProvider<ConcertModel>
+public class BandValueProvider extends BasePropertyFieldValueProvider<BandModel>
 {
 	private FieldNameProvider fieldNameProvider;
 
 	@Override
-	ConcertModel getModel(Object model) {
+	BandModel getModel(Object model) {
 		Object finalModel = model;
 		if (model instanceof ConcertTicketModel)
 		{
@@ -33,7 +36,12 @@ public class ConcertVenueValueProvider extends BasePropertyFieldValueProvider<Co
 
 		if (finalModel instanceof ConcertModel)
 		{
-			return (ConcertModel) finalModel;
+			finalModel = ((ConcertModel) finalModel).getTour();
+		}
+
+		if (finalModel instanceof TourModel)
+		{
+			return ((TourModel) finalModel).getBand();
 		}
 		else
 		{
@@ -42,8 +50,8 @@ public class ConcertVenueValueProvider extends BasePropertyFieldValueProvider<Co
 	}
 
 	@Override
-	String getFieldValue(ConcertModel model) {
-		return (model != null) ? model.getVenue() : null;
+	String getFieldValue(BandModel model) {
+		return (model != null) ? model.getName() : null;
 	}
 
 }
