@@ -13,18 +13,16 @@ $solrIndexedType=apparel-deProductType
 $indexBaseSite=apparel-de
 $indexLanguages=de
 $indexCurrencies=EUR
-
 #
 # Setup the indexed types, their properties, and the update queries
 #
 
-# Non-facet properties
 INSERT_UPDATE SolrIndexedProperty;solrIndexedType(identifier)[unique=true];name[unique=true];type(code);sortableType(code);currency[default=false];localized[default=false];multiValue[default=false];facet[default=true];facetType(code);facetSort(code);priority;visible;useForSpellchecking[default=false];useForAutocomplete[default=false];fieldValueProvider;facetDisplayNameProvider;customFacetSortProvider;topValuesProvider;rangeSets(name)
-;$solrIndexedType; priceCategory    ;string ;            ;     ;true;    ; ;MultiSelectOr ;      ; 2000;true;    ;    ;optionalModelPropertyFieldValueProvider;                                             ;                             ;
-#;$solrIndexedType; size             ;string ;            ;     ;true;    ; ;MultiSelectOr ;Custom; 2000;true;    ;    ;optionalModelPropertyFieldValueProvider;                                             ;sizeAttributeSortProvider    ;
+;$solrIndexedType; priceCategory    ;string ;            ;     ;true;    ; ;MultiSelectOr ;      ; 2000 ;true;    ;    ;optionalModelPropertyFieldValueProvider;                                             ;                             ;
+;$solrIndexedType; venue            ;string ;            ;     ;    ;    ; ;MultiSelectOr ;      ; 20000;true;    ;    ;concertVenueValueProvider;                                             ;                             ;
 
-# Other search query facets
+
 INSERT_UPDATE SolrSearchQueryProperty;indexedProperty(name, solrIndexedType(identifier))[unique=true];facet[default=true];facetType(code);priority;facetDisplayNameProvider;facetSortProvider;facetTopValuesProvider;includeInResponse[default=true];searchQueryTemplate(name, indexedType(identifier))[unique=true][default=DEFAULT:$solrIndexedType]
 ;priceCategory:$solrIndexedType											 ;					 ;MultiSelectOr	 ;2000	  ;						   						;                        	  ;				  			;;
-#;size:$solrIndexedType											         ;					 ;MultiSelectOr	 ;2000	  ;						   						;sizeAttributeSortProvider	  ;				  			;;
+;venue:$solrIndexedType         									     ;					 ;MultiSelectOr	 ;20000	  ;						   						;                        	  ;				  			;;
 

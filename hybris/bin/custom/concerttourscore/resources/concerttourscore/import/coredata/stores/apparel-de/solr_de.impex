@@ -14,6 +14,7 @@ $lang=de
 # Solr Indexed Property
 UPDATE SolrIndexedProperty;solrIndexedType(identifier)[unique=true];name[unique=true];displayName[lang=$lang]
  ;$solrIndexedType;priceCategory;"Preiskategorie"
+ ;$solrIndexedType;venue;"Veranstaltungsort"
 
 
 

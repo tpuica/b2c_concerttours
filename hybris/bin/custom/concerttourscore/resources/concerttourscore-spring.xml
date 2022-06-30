@@ -189,6 +189,12 @@
 		<property name="commonI18NService" ref="commonI18NService"/>
 	</bean>
 
+	<bean id="concertVenueValueProvider"
+		  class="de.stripedgiraffe.concerttours.core.search.solrfacetsearch.provider.impl.ConcertVenueValueProvider"
+		  parent="abstractPropertyFieldValueProvider">
+		<property name="fieldNameProvider" ref="solrFieldNameProvider"/>
+	</bean>
+
 	<!--
 		Event listeners are singletons, therefore the dependency for a bean in tenant-scope
 		must be configured with a lookup method.
