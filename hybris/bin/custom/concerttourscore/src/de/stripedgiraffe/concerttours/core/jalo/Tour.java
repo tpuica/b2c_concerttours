@@ -6,10 +6,10 @@ import de.hybris.platform.jalo.SessionContext;
 import de.hybris.platform.jalo.type.ComposedType;
 import org.apache.log4j.Logger;
 
-public class NotLoremIpsumConstraint extends GeneratedNotLoremIpsumConstraint
+public class Tour extends GeneratedTour
 {
 	@SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger( NotLoremIpsumConstraint.class.getName() );
+	private static final Logger LOG = Logger.getLogger( Tour.class.getName() );
 	
 	@Override
 	protected Item createItem(final SessionContext ctx, final ComposedType type, final ItemAttributeMap allAttributes) throws JaloBusinessException

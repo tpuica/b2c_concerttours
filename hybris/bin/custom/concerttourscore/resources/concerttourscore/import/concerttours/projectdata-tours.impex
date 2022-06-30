@@ -1,0 +1,6 @@
+# ImpEx for Importing Tours into Little Concert Tours Store
+
+# Insert Tours
+INSERT_UPDATE Tour;code[unique=true];name;band(code);hashtag[lang=en];hashtag[lang=de];
+;201701;The Grand Little x Tour;A001;GrandLittle;GrossWenig;
+;800001;The Grand Little y Tour;A005;GrandLittle;GWY;

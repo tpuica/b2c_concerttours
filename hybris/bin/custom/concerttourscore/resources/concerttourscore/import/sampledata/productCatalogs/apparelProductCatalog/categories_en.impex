@@ -13,3 +13,13 @@ $lang=en
 # Create Categories
 UPDATE Category;code[unique=true];$catalogVersion;name[lang=$lang];description[lang=$lang]
 ;concerts;;Concerts;
+# bands root category
+;bands;;Bands;
+# Bands
+;A001;;yRock;
+;A002;;Sirken;
+;A003;;yJazz;
+;A004;;Banned;
+;A005;;The Choir;
+;A006;;yBand;
+;A007;;The Quiet;
