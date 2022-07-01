@@ -1,0 +1,25 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+#
+# Localization de
+#
+$lang=de
+
+$facetSearchConfigName=apparel-deIndex
+$indexedType=apparel-deProductType
+$contentCatalogName=apparel-deContentCatalog
+$contentCatalogVersion=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalogName]),CatalogVersion.version[default=Staged])[default=$contentCatalogName:Staged]
+$productCatalog=apparelProductCatalog
+$productCatalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
+
+
+# Category Redirect (Must use INSERT_UPDATE here)
+INSERT_UPDATE SolrCategoryRedirect;redirectItem(code,$productCatalogVersion)[unique=true];&redirectRefID
+;concerts;$productCatalog-redirectRefID-concerts
+
+
+# Keyword Redirects (Must use INSERT_UPDATE here)
+INSERT_UPDATE SolrFacetSearchKeywordRedirect;facetSearchConfig(name)[unique=true,default=$facetSearchConfigName];language(isocode)[unique=true,default=$lang];keyword[unique=true];matchType(code)[unique=true];redirect(&redirectRefID);ignoreCase[default=true]
+;;;"Konzert" ;EXACT;$productCatalog-redirectRefID-concerts;
+;;;"Konzerte";EXACT;$productCatalog-redirectRefID-concerts;
