@@ -17,11 +17,6 @@ $taxGroup=Europe1PriceFactory_PTG(code)[default=eu-vat-full]
 # ApparelProduct > ApparelStyleVariantProduct > ApparelSizeVariantProduct
 # Apparel products may have no variations, only colour (style) variations or both colour and size variations.
 
-# Insert Tours
-INSERT_UPDATE Tour;code[unique=true];name;band(code);hashtag[lang=en];hashtag[lang=de];
-;201701;The Grand Little x Tour;A001;GrandLittle;GrossWenig;
-;800001;The Grand Little y Tour;A005;GrandLittle;GWY;
-
 # Insert Products
 INSERT_UPDATE Concert;code[unique=true];name;date[dateformat=dd.MM.yyyy];tour(code);venue;concertType(code);variantType(code);$supercategories;$catalogVersion;$approved
 ;20170101;Grand Tour - Munich;03.05.2023;201701;"Munich, Germany";openair;ConcertTicket;concerts,A001;

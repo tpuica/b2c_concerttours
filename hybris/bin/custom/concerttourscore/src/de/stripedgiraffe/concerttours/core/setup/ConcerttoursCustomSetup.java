@@ -38,6 +38,7 @@ public class ConcerttoursCustomSetup
         impexImport("/concerttourscore/import/concerttours/projectdata-bands.impex");
         impexImport("/concerttourscore/import/concerttours/projectdata-bands-de.impex");
         impexImport("/concerttourscore/import/concerttours/projectdata-bands-en.impex");
+        impexImport("/concerttourscore/import/concerttours/projectdata-tours.impex");
         LOG.info("Custom project data loading for the Concerttours extension completed.");
         return true;
     }
