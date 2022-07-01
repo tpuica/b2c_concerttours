@@ -64,6 +64,9 @@
 	<bean id="apparelCollectionCategorySource" parent="abstractCategorySource">
 		<property name="rootCategory" value="collections"/> <!-- 'collections' is the root of the collections hierarchy -->
 	</bean>
+	<bean id="concertBandCategorySource" parent="abstractCategorySource">
+		<property name="rootCategory" value="bands"/>
+	</bean>
 
 	<bean id="abstractCategoryCodeValueProvider" abstract="true"
 	      class="de.hybris.platform.commerceservices.search.solrfacetsearch.provider.impl.CategoryCodeValueProvider"
@@ -108,6 +111,9 @@
 	</bean>
 	<bean id="apparelCollectionCategoryNameValueProvider" parent="abstractCategoryNameValueProvider">
 		<property name="categorySource" ref="apparelCollectionCategorySource"/>
+	</bean>
+	<bean id="concertBandCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
+		<property name="categorySource" ref="concertBandCategorySource"/>
 	</bean>
 
 	<bean id="image515ValueProvider" parent="abstractImageValueProvider" >

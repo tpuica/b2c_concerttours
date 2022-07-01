@@ -11,3 +11,13 @@ $supercategories=source(code, $catalogVersion)[unique=true]
 # Insert Categories
 INSERT_UPDATE Category;code[unique=true];$catalogVersion;supercategories(code,$catalogVersion);allowedPrincipals(uid)[default='customergroup']
 ;concerts;;categories;
+# bands root category, its only purpose is to filter concert by band name
+;bands;;;
+# Bands
+;A001;;bands;
+;A002;;bands;
+;A003;;bands;
+;A004;;bands;
+;A005;;bands;
+;A006;;bands;
+;A007;;bands;

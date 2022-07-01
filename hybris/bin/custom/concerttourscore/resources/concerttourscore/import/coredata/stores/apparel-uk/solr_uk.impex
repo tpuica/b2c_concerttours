@@ -15,7 +15,7 @@ $lang=en
 UPDATE SolrIndexedProperty;solrIndexedType(identifier)[unique=true];name[unique=true];displayName[lang=$lang]
  ;$solrIndexedType;priceCategory;"Price Category"
  ;$solrIndexedType;venue;"Venue"
- ;$solrIndexedType;band;"Band"
+ ;$solrIndexedType;bandName;"Band"
 
 
 

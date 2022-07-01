@@ -34,14 +34,14 @@ INSERT_UPDATE Tour;code[unique=true];name;band(code);hashtag[lang=en];hashtag[la
 
 # Insert Products
 INSERT_UPDATE Concert;code[unique=true];name;date[dateformat=dd.MM.yyyy];tour(code);venue;concertType(code);variantType(code);$supercategories;$catalogVersion;$approved
-;20170101;Grand Tour - Munich;03.05.2023;201701;"Munich, Germany";openair;ConcertTicket;concerts;
-;20170102;Grand Tour - London;21.03.2023;201701;"London, UK";openair;ConcertTicket;concerts;
-;20170103;Grand Tour - Montreal;15.06.2023;201701;"Montreal, Canada";indoor;ConcertTicket;concerts;
-;20170104;Grand Tour - Gliwice;04.11.2022;201701;"Gliwice, Poland";indoor;ConcertTicket;concerts;
-;20170105;Grand Tour - Boulder;07.01.2023;201701;"Boulder, USA";indoor;ConcertTicket;concerts;
-;20170106;Grand Tour - Boston;;201701;"Boston, USA";;ConcertTicket;concerts;
-;80000101;Grand Little Tour - Weilheim;01.01.2023;800001;"Weilheim, Oberbayern";indoor;ConcertTicket;concerts;
-;80000102;Grand Little Tour - Rosenheim;02.01.2023;800001;"Rosenheim, Oberbayern";indoor;ConcertTicket;concerts;
+;20170101;Grand Tour - Munich;03.05.2023;201701;"Munich, Germany";openair;ConcertTicket;concerts,A001;
+;20170102;Grand Tour - London;21.03.2023;201701;"London, UK";openair;ConcertTicket;concerts,A001;
+;20170103;Grand Tour - Montreal;15.06.2023;201701;"Montreal, Canada";indoor;ConcertTicket;concerts,A001;
+;20170104;Grand Tour - Gliwice;04.11.2022;201701;"Gliwice, Poland";indoor;ConcertTicket;concerts,A001;
+;20170105;Grand Tour - Boulder;07.01.2023;201701;"Boulder, USA";indoor;ConcertTicket;concerts,A001;
+;20170106;Grand Tour - Boston;;201701;"Boston, USA";;ConcertTicket;concerts,A001;
+;80000101;Grand Little Tour - Weilheim;01.01.2023;800001;"Weilheim, Oberbayern";indoor;ConcertTicket;concerts,A005;
+;80000102;Grand Little Tour - Rosenheim;02.01.2023;800001;"Rosenheim, Oberbayern";indoor;ConcertTicket;concerts,A005;
 
 # Insert Products
 INSERT_UPDATE ConcertTicket;code[unique=true];name;baseProduct(code);$catalogVersion;$approved
