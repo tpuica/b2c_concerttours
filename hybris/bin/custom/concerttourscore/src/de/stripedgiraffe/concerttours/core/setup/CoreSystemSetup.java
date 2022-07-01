@@ -74,9 +74,9 @@ public class CoreSystemSetup extends AbstractSystemSetup
 		final List<SystemSetupParameter> params = new ArrayList<>();
 
 		params.add(createBooleanSystemSetupParameter(IMPORT_ACCESS_RIGHTS, "Import Users & Groups", true));
-		// params.add(createBooleanSystemSetupParameter(IMPORT_CORE_DATA, "Import Core Data", true));
+		params.add(createBooleanSystemSetupParameter(IMPORT_CORE_DATA, "Import Core Data", true));
 		params.add(createBooleanSystemSetupParameter(IMPORT_SAMPLE_DATA, "Import Sample Data", true));
-		//params.add(createBooleanSystemSetupParameter(ACTIVATE_SOLR_CRON_JOBS, "Activate Solr Cron Jobs", true));
+		params.add(createBooleanSystemSetupParameter(ACTIVATE_SOLR_CRON_JOBS, "Activate Solr Cron Jobs", true));
 
 		return params;
 	}
