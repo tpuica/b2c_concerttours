@@ -27,12 +27,7 @@ public class ConcerttoursCustomSetup
     public boolean putInMyEssentialData()
     {
         LOG.info("Starting custom essential data loading for the Concerttours extension");
-        impexImport("/concerttourscore/import/concerttours/impex/essentialdata-catalog.impex");
-        impexImport("/concerttourscore/import/concerttours/impex/essentialdata-categories.impex");
-        impexImport("/concerttourscore/import/concerttours/impex/essentialdata-constraints.impex");
-        impexImport("/concerttourscore/import/concerttours/impex/essentialdata-mediaformats.impex");
-        impexImport("/concerttourscore/import/concerttours/impex/essentialdata-musictypes.impex");
-        // impexImport("/concerttourscore/import/concerttours/impex/essentialdataJobs.impex");
+        impexImport("/concerttourscore/import/concerttours/essentialdata-musictypes.impex");
         LOG.info("Custom essential data loading for the Concerttours extension completed.");
         return true;
     }
@@ -40,10 +35,9 @@ public class ConcerttoursCustomSetup
     public boolean addMyProjectData()
     {
         LOG.info("Starting custom project data loading for the Concerttours extension");
-        // impexImport("/concerttourscore/import/concerttours/impex/concerttours-bands.impex");
-		// impexImport("/concerttourscore/import/concerttours/impex/concerttours-bands-de.impex");
-		// impexImport("/concerttourscore/import/concerttours/impex/concerttours-bands-en.impex");
-        // impexImport("/concerttourscore/import/concerttours/impex/concerttours-yBandTour.impex");
+        impexImport("/concerttourscore/import/concerttours/projectdata-bands.impex");
+        impexImport("/concerttourscore/import/concerttours/projectdata-bands-de.impex");
+        impexImport("/concerttourscore/import/concerttours/projectdata-bands-en.impex");
         LOG.info("Custom project data loading for the Concerttours extension completed.");
         return true;
     }
