@@ -468,29 +468,29 @@ def platform = platform {
 			extName 'concerttoursstorefront'
     }
 
-    // addons {
-    //      forStoreFronts('concerttoursstorefront') {
-    //          names(
-	//  			'accountsummaryaddon',
-    //              'adaptivesearchsamplesaddon',                
-	//  			'b2bacceleratoraddon',
-    //              'b2bpunchoutaddon',
-    //              'captchaaddon',
-	//  			'commerceorgaddon',
-    //              'commerceorgsamplesaddon',                                                                                                                              
-    //              'multicountrysampledataaddon',                
-    //              'ordermanagementaddon',
-    //              'orderselfserviceaddon',
-    //              'pcmbackofficesamplesaddon',
-    //              'personalizationaddon',
-    //              'personalizationsampledataaddon',
-    //              'personalizationyprofilesampledataaddon',
-    //              'profiletagaddon',                				
-    //              'secureportaladdon'                           
-    //          )
-    //          template 'yacceleratorstorefront'
-    //      }
-    //  }
+    addons {
+        forStoreFronts('concerttoursstorefront') {
+            names(
+				'accountsummaryaddon',
+                'adaptivesearchsamplesaddon',                
+	  			'b2bacceleratoraddon',
+                'b2bpunchoutaddon',
+                'captchaaddon',
+	  			'commerceorgaddon',
+                'commerceorgsamplesaddon',                                                                                                                              
+                'multicountrysampledataaddon',                
+                'ordermanagementaddon',
+                'orderselfserviceaddon',
+                'pcmbackofficesamplesaddon',
+                'personalizationaddon',
+                'personalizationsampledataaddon',
+                'personalizationyprofilesampledataaddon',
+                'profiletagaddon',                				
+                'secureportaladdon'                           
+            )
+            template 'yacceleratorstorefront'
+        }
+    }
 }
 
 task createStoreFrontExt {
