@@ -470,23 +470,23 @@ def platform = platform {
 
     addons {
         forStoreFronts('concerttoursstorefront') {
-            names(
-				'accountsummaryaddon',
-                'adaptivesearchsamplesaddon',                
-	  			'b2bacceleratoraddon',
-                'b2bpunchoutaddon',
-                'captchaaddon',
-	  			'commerceorgaddon',
-                'commerceorgsamplesaddon',                                                                                                                              
-                'multicountrysampledataaddon',                
-                'ordermanagementaddon',
-                'orderselfserviceaddon',
-                'pcmbackofficesamplesaddon',
-                'personalizationaddon',
-                'personalizationsampledataaddon',
-                'personalizationyprofilesampledataaddon',
-                'profiletagaddon',                				
-                'secureportaladdon'                           
+            names(			    
+				'personalizationaddon',
+				'profiletagaddon',
+				'ordermanagementaddon'
+				// 'accountsummaryaddon',
+                // 'adaptivesearchsamplesaddon',                
+	  			// 'b2bacceleratoraddon',
+                // 'b2bpunchoutaddon',
+                // 'captchaaddon',
+	  			// 'commerceorgaddon',
+                // 'commerceorgsamplesaddon',                                                                                                                              
+                // 'multicountrysampledataaddon',                
+                // 'orderselfserviceaddon',
+                // 'pcmbackofficesamplesaddon',               
+                // 'personalizationsampledataaddon',
+                // 'personalizationyprofilesampledataaddon',               
+                // 'secureportaladdon'                           
             )
             template 'yacceleratorstorefront'
         }
