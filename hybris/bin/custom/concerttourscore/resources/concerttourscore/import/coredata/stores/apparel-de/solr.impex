@@ -18,14 +18,14 @@ $indexCurrencies=EUR
 #
 
 INSERT_UPDATE SolrIndexedProperty;solrIndexedType(identifier)[unique=true];name[unique=true];type(code);sortableType(code);currency[default=false];localized[default=false];multiValue[default=false];facet[default=true];facetType(code);facetSort(code);priority;visible;useForSpellchecking[default=false];useForAutocomplete[default=false];fieldValueProvider;facetDisplayNameProvider;customFacetSortProvider;topValuesProvider;rangeSets(name)
-;$solrIndexedType; priceCategory    ;string ;            ;     ;true;    ; ;MultiSelectOr ;      ; 2000 ;true;    ;    ;optionalModelPropertyFieldValueProvider;                                             ;                             ;
+;$solrIndexedType; ticketType    ;string ;            ;     ;true;    ; ;MultiSelectOr ;      ; 2000 ;true;    ;    ;optionalModelPropertyFieldValueProvider;                                             ;                             ;
 ;$solrIndexedType; venue            ;string ;            ;     ;    ;    ; ;MultiSelectOr ;      ; 20000;true;    ;    ;concertVenueValueProvider              ;                                             ;                             ;
 # band filtering implemented using bands categories
 # ;$solrIndexedType; band             ;string ;            ;     ;    ;    ; ;MultiSelectOr ;      ; 30000;true;    ;    ;bandValueProvider                      ;                                             ;                             ;
 
 
 INSERT_UPDATE SolrSearchQueryProperty;indexedProperty(name, solrIndexedType(identifier))[unique=true];facet[default=true];facetType(code);priority;facetDisplayNameProvider;facetSortProvider;facetTopValuesProvider;includeInResponse[default=true];searchQueryTemplate(name, indexedType(identifier))[unique=true][default=DEFAULT:$solrIndexedType]
-;priceCategory:$solrIndexedType											 ;					 ;MultiSelectOr	 ;2000	  ;						   						;                        	  ;				  			;;
+;ticketType:$solrIndexedType											 ;					 ;MultiSelectOr	 ;2000	  ;						   						;                        	  ;				  			;;
 ;venue:$solrIndexedType         									     ;					 ;MultiSelectOr	 ;20000	  ;						   						;                        	  ;				  			;;
 # band filtering implemented using bands categories
 # ;band:$solrIndexedType           									     ;					 ;MultiSelectOr	 ;30000	  ;						   						;                        	  ;				  			;;

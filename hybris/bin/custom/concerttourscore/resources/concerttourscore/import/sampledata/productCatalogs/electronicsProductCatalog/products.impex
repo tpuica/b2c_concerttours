@@ -32,7 +32,7 @@ $approved=approvalstatus(code)[default='approved']
 #;20170106;Grand Tour - Boston;;"hybris Boston, USA";;201701;ConcertTicket;306
 
 # Insert Products
-#INSERT_UPDATE ConcertTicket;code[unique=true];name;baseProduct(code);priceCategory(code);$catalogVersion;$approved
+#INSERT_UPDATE ConcertTicket;code[unique=true];name;baseProduct(code);ticketType(code);$catalogVersion;$approved
 #;2017010101;Grand Tour - Munich;20170101;GA;
 #;2017010102;Grand Tour - Munich;20170101;CATI;
 #;2017010103;Grand Tour - Munich;20170101;CATII;

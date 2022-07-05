@@ -136,14 +136,14 @@
                         <select id="TicketType" class="form-control variant-select" disabled="disabled">
                             <c:if test="${not empty ticketTypes}">
                                 <option value="${fn:escapeXml(currentStyledProductUrl)}"
-                                        <c:if test="${empty variantParams['priceCategory']}">selected="selected"</c:if>>
-                                    <spring:theme code="product.variants.select.priceCategory"/>
+                                        <c:if test="${empty variantParams['ticketType']}">selected="selected"</c:if>>
+                                    <spring:theme code="product.variants.select.ticketType"/>
                                 </option>
                                 <c:forEach items="${ticketTypes}" var="ticketType">
                                     <c:set var="optionsStringHtml" value=""/>
                                     <c:set var="nameStringHtml" value=""/>
                                     <c:forEach items="${ticketType.variantOptionQualifiers}" var="variantOptionQualifier">
-                                        <c:if test="${variantOptionQualifier.qualifier eq 'priceCategory'}">
+                                        <c:if test="${variantOptionQualifier.qualifier eq 'ticketType'}">
                                             <c:set var="variantOptionQualifierValueHtml" value="${fn:escapeXml(variantOptionQualifier.value)}"/>
                                             <c:set var="optionsStringHtml">${optionsStringHtml}&nbsp;${fn:escapeXml(variantOptionQualifier.name)}&nbsp;${variantOptionQualifierValueHtml}, </c:set>
                                             <c:set var="nameStringHtml">${variantOptionQualifierValueHtml}</c:set>
