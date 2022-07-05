@@ -131,35 +131,24 @@
                 <c:if test="${not empty ticketTypes}">
                     <div class="variant-selector">
                         <div class="variant-name">
-                            <label for="Size"><spring:theme code="product.variants.ticketCategory"/><span class="variant-selected sizeName"></span></label>
+                            <label for="TicketType"><spring:theme code="product.variants.ticketType"/><span class="variant-selected ticketType"></span></label>
                         </div>
                         <select id="TicketType" class="form-control variant-select" disabled="disabled">
                             <c:if test="${not empty ticketTypes}">
                                 <option value="${fn:escapeXml(currentStyledProductUrl)}"
-                                        <c:if test="${empty variantParams['priceCategory']}">selected="selected"</c:if>>
-                                    <spring:theme code="product.variants.select.priceCategory"/>
+                                        <c:if test="${empty variantParams['ticketType']}">selected="selected"</c:if>>
+                                    <spring:theme code="product.variants.select.ticketType"/>
                                 </option>
                                 <c:forEach items="${ticketTypes}" var="ticketType">
                                     <c:set var="optionsStringHtml" value=""/>
                                     <c:set var="nameStringHtml" value=""/>
                                     <c:forEach items="${ticketType.variantOptionQualifiers}" var="variantOptionQualifier">
-                                        <c:if test="${variantOptionQualifier.qualifier eq 'priceCategory'}">
+                                        <c:if test="${variantOptionQualifier.qualifier eq 'ticketType'}">
                                             <c:set var="variantOptionQualifierValueHtml" value="${fn:escapeXml(variantOptionQualifier.value)}"/>
                                             <c:set var="optionsStringHtml">${optionsStringHtml}&nbsp;${fn:escapeXml(variantOptionQualifier.name)}&nbsp;${variantOptionQualifierValueHtml}, </c:set>
                                             <c:set var="nameStringHtml">${variantOptionQualifierValueHtml}</c:set>
                                         </c:if>
                                     </c:forEach>
-
-                                    <c:if test="${(ticketType.stock.stockLevel gt 0) and (ticketType.stock.stockLevelStatus ne 'outOfStock')}">
-                                        <c:set var="stockLevelHtml">${fn:escapeXml(variantSize.stock.stockLevel)}&nbsp;
-                                            <spring:theme code="product.variants.in.stock"/></c:set>
-                                    </c:if>
-                                    <c:if test="${(ticketType.stock.stockLevel le 0) and (ticketType.stock.stockLevelStatus eq 'inStock')}">
-                                        <c:set var="stockLevelHtml"><spring:theme code="product.variants.available"/></c:set>
-                                    </c:if>
-                                    <c:if test="${(ticketType.stock.stockLevel le 0) and (ticketType.stock.stockLevelStatus ne 'inStock')}">
-                                        <c:set var="stockLevelHtml"><spring:theme code="product.variants.out.of.stock"/></c:set>
-                                    </c:if>
 
                                     <c:if test="${(ticketType.url eq product.url)}">
                                         <c:set var="showAddToCart" value="${true}" scope="session"/>
@@ -170,7 +159,7 @@
 
                                     <option value="${fn:escapeXml(variantOptionUrl)}" ${(ticketType.url eq product.url) ? 'selected="selected"' : ''}>
                                             ${optionsStringHtml}&nbsp;<format:price
-                                            priceData="${ticketType.priceData}"/>&nbsp;&nbsp;(${fn:escapeXml(ticketType.stock.stockLevel)})
+                                            priceData="${ticketType.priceData}"/>
                                     </option>
                                 </c:forEach>
                             </c:if>

@@ -132,7 +132,7 @@
 			<itemtype generate="true" code="ConcertTicket" extends="VariantProduct" autocreate="true" >
 			    <description>Concert Ticket variant.</description>
                 <attributes>
-                    <attribute qualifier="priceCategory" type="localized:java.lang.String"
+                    <attribute qualifier="ticketType" type="localized:java.lang.String"
 							   metatype="VariantAttributeDescriptor">
                         <description>Price Category of the product.</description>
                         <modifiers/>

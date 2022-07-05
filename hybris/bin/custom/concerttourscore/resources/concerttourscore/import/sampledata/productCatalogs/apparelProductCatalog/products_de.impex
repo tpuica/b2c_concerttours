@@ -10,7 +10,7 @@ $catalogVersion=catalogVersion(catalog(id[default='apparelProductCatalog']),vers
 
 
 # Tickets
-UPDATE Product;code[unique=true];$catalogVersion;name[lang=$lang];summary[lang=$lang];description[lang=$lang];ConcertTicket.priceCategory[lang=$lang]
+UPDATE Product;code[unique=true];$catalogVersion;name[lang=$lang];summary[lang=$lang];description[lang=$lang];ConcertTicket.ticketType[lang=$lang]
 ;2017010101;;yRock - Grand Tour - Munich;General Admisison Ticket;After 22 difficult years of COVID-19 pandemic the boys are back on stage and ready to rock your world. The wait is now over. So be there!;Allgemeine Eintrittskarte
 ;2017010102;;yRock - Grand Tour - Munich;Category I Ticket;After 22 difficult years of COVID-19 pandemic the boys are back on stage and ready to rock your world. The wait is now over. So be there!;Sitzplatz Kategorie 1
 ;2017010103;;yRock - Grand Tour - Munich;Category II Ticket;After 22 difficult years of COVID-19 pandemic the boys are back on stage and ready to rock your world. The wait is now over. So be there!;Sitzplatz Kategorie 2

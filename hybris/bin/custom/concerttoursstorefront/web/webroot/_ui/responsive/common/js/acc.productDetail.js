@@ -113,6 +113,10 @@ ACC.productDetail = {
             changeOnVariantOptionSelection($("#Size option:selected"));
         });
 
+        $("#TicketType").change(function () {
+            changeOnVariantOptionSelection($("#TicketType option:selected"));
+        });
+
         $("#variant").change(function () {
             changeOnVariantOptionSelection($("#variant option:selected"));
         });
