@@ -6,9 +6,14 @@ package de.stripedgiraffe.concerttours.core.search.solrfacetsearch.provider.impl
 import de.stripedgiraffe.concerttours.core.model.ConcertModel;
 import de.stripedgiraffe.concerttours.core.model.ConcertTicketModel;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
-public class ConcertVenueValueProvider extends BasePropertyFieldValueProvider<ConcertModel>
+
+public class ConcertDateValueProvider extends BasePropertyFieldValueProvider<ConcertModel>
 {
+
+	private final static DateFormat DATE_FORMATTER = new SimpleDateFormat("dd-MM-yyyy");
 
 	@Override
 	ConcertModel getModel(Object model) {
@@ -30,7 +35,7 @@ public class ConcertVenueValueProvider extends BasePropertyFieldValueProvider<Co
 
 	@Override
 	String getFieldValue(ConcertModel model) {
-		return (model != null) ? model.getVenue() : null;
+		return (model != null) ? DATE_FORMATTER.format(model.getDate()) : null;
 	}
 
 }

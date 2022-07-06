@@ -6,15 +6,10 @@ package de.stripedgiraffe.concerttours.core.search.solrfacetsearch.provider.impl
 import de.hybris.platform.core.model.ItemModel;
 import de.hybris.platform.solrfacetsearch.config.IndexConfig;
 import de.hybris.platform.solrfacetsearch.config.IndexedProperty;
-import de.hybris.platform.solrfacetsearch.config.exceptions.FieldValueProviderException;
 import de.hybris.platform.solrfacetsearch.provider.FieldNameProvider;
 import de.hybris.platform.solrfacetsearch.provider.FieldValue;
 import de.hybris.platform.solrfacetsearch.provider.FieldValueProvider;
 import de.hybris.platform.solrfacetsearch.provider.impl.AbstractPropertyFieldValueProvider;
-import de.stripedgiraffe.concerttours.core.model.BandModel;
-import de.stripedgiraffe.concerttours.core.model.ConcertModel;
-import de.stripedgiraffe.concerttours.core.model.ConcertTicketModel;
-import de.stripedgiraffe.concerttours.core.model.TourModel;
 import org.springframework.beans.factory.annotation.Required;
 
 import java.util.ArrayList;
@@ -27,13 +22,13 @@ public abstract class BasePropertyFieldValueProvider<T extends ItemModel> extend
 {
 	private FieldNameProvider fieldNameProvider;
 
-	abstract <T> T getModel(final Object model);
+	abstract T getModel(final Object model);
 
 	abstract String getFieldValue(T model);
 
 	@Override
 	public Collection<FieldValue> getFieldValues(final IndexConfig indexConfig, final IndexedProperty indexedProperty,
-			final Object model) throws FieldValueProviderException
+			final Object model)
 	{
 		final T itemModel = getModel(model);
 		if (itemModel == null)
@@ -45,9 +40,7 @@ public abstract class BasePropertyFieldValueProvider<T extends ItemModel> extend
 
 		if (fieldValue != null && fieldValue.trim().length() > 0)
 		{
-			final Collection<FieldValue> fieldValues = new ArrayList<FieldValue>();
-			fieldValues.addAll(createFieldValue(fieldValue, indexedProperty));
-			return fieldValues;
+			return new ArrayList<>(createFieldValue(fieldValue, indexedProperty));
 		}
 		else
 		{
@@ -57,7 +50,7 @@ public abstract class BasePropertyFieldValueProvider<T extends ItemModel> extend
 
 	protected List<FieldValue> createFieldValue(final String venue, final IndexedProperty indexedProperty)
 	{
-		final List<FieldValue> fieldValues = new ArrayList<FieldValue>();
+		final List<FieldValue> fieldValues = new ArrayList<>();
 		final Collection<String> fieldNames = fieldNameProvider.getFieldNames(indexedProperty, null);
 		for (final String fieldName : fieldNames)
 		{

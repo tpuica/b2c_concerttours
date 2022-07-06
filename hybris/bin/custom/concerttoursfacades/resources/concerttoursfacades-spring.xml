@@ -72,6 +72,16 @@
 
 	<bean id="apparelProductPopulator" class="de.stripedgiraffe.concerttours.facades.populators.ApparelProductPopulator" >
 		<property name="genderConverter" ref="genderConverter"/>
+		<property name="tourConverter" ref="tourConverter"/>
+	</bean>
+
+	<bean id="tourConverter" class="de.stripedgiraffe.concerttours.facades.converters.TourConverter">
+		<property name="targetClass" value="de.stripedgiraffe.concerttours.facades.data.TourData"/>
+		<property name="bandConverter" ref="bandConverter"/>
+	</bean>
+
+	<bean id="bandConverter" class="de.stripedgiraffe.concerttours.facades.converters.BandConverter" >
+		<property name="targetClass" value="de.stripedgiraffe.concerttours.facades.data.BandData"/>
 	</bean>
 
 	<!-- Add the apparelProductPopulator to the productConverter -->
