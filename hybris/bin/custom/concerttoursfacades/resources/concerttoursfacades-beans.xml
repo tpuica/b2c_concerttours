@@ -7,7 +7,7 @@
 	<bean class="de.hybris.platform.commercefacades.product.data.ProductData">
 		<property name="genders" type="java.util.List&lt;de.stripedgiraffe.concerttours.facades.product.data.GenderData>"/>
 		<property name="venue" type="String"/>
-		<property name="date" type="java.util.Date"/>
+		<property name="concertDate" type="String"/>
 		<property name="tour" type="de.stripedgiraffe.concerttours.facades.data.TourData"/>
 	</bean>
 

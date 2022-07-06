@@ -214,6 +214,7 @@
 		  class="de.stripedgiraffe.concerttours.core.search.solrfacetsearch.provider.impl.ConcertDateValueProvider"
 		  parent="abstractPropertyFieldValueProvider">
 		<property name="fieldNameProvider" ref="solrFieldNameProvider"/>
+		<property name="dateFormat" ref="concertToursDateFormat"/>
 	</bean>
 
 	<!--
@@ -573,5 +574,9 @@
 	</bean>
 
 	<bean id="concertDaysUntilAttributeHandler" class="de.stripedgiraffe.concerttours.core.attributehandlers.ConcertDaysUntilAttributeHandler"/>
+
+	<bean id="concertToursDateFormat" class="java.text.SimpleDateFormat">
+		<constructor-arg value="dd-MM-yyyy"/>
+	</bean>
 
 </beans>
