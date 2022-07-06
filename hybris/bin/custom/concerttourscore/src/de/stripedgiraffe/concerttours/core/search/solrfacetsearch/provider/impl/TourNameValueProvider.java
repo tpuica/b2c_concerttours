@@ -5,13 +5,14 @@ package de.stripedgiraffe.concerttours.core.search.solrfacetsearch.provider.impl
 
 import de.stripedgiraffe.concerttours.core.model.ConcertModel;
 import de.stripedgiraffe.concerttours.core.model.ConcertTicketModel;
+import de.stripedgiraffe.concerttours.core.model.TourModel;
 
 
-public class ConcertVenueValueProvider extends BasePropertyFieldValueProvider<ConcertModel>
+public class TourNameValueProvider extends BasePropertyFieldValueProvider<TourModel>
 {
 
 	@Override
-	ConcertModel getModel(Object model) {
+	TourModel getModel(Object model) {
 		Object finalModel = model;
 		if (model instanceof ConcertTicketModel)
 		{
@@ -20,7 +21,7 @@ public class ConcertVenueValueProvider extends BasePropertyFieldValueProvider<Co
 
 		if (finalModel instanceof ConcertModel)
 		{
-			return (ConcertModel) finalModel;
+			return ((ConcertModel) finalModel).getTour();
 		}
 		else
 		{
@@ -29,8 +30,8 @@ public class ConcertVenueValueProvider extends BasePropertyFieldValueProvider<Co
 	}
 
 	@Override
-	String getFieldValue(ConcertModel model) {
-		return (model != null) ? model.getVenue() : null;
+	String getFieldValue(TourModel model) {
+		return (model != null) ? model.getName() : null;
 	}
 
 }

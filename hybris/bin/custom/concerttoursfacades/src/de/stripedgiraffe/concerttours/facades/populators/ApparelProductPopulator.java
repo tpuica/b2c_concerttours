@@ -68,6 +68,7 @@ public class ApparelProductPopulator implements Populator<ProductModel, ProductD
 		} else if (baseProduct instanceof ConcertModel) {
 			final ConcertModel concertModel = (ConcertModel) baseProduct;
 			target.setTour(tourConverter.convert(concertModel.getTour()));
+			target.setVenue(concertModel.getVenue());
 		}
 	}
 
