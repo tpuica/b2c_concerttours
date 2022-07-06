@@ -16,6 +16,7 @@ import de.stripedgiraffe.concerttours.core.model.ConcertTicketModel;
 import de.stripedgiraffe.concerttours.facades.converters.TourConverter;
 import de.stripedgiraffe.concerttours.facades.product.data.GenderData;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +33,8 @@ public class ApparelProductPopulator implements Populator<ProductModel, ProductD
 
 	private TourConverter tourConverter;
 
+	private DateFormat dateFormat;
+
 	protected Converter<Gender, GenderData> getGenderConverter()
 	{
 		return genderConverter;
@@ -46,6 +49,11 @@ public class ApparelProductPopulator implements Populator<ProductModel, ProductD
 	@Required
 	public void setTourConverter(TourConverter tourConverter) {
 		this.tourConverter = tourConverter;
+	}
+
+	@Required
+	public void setDateFormat(DateFormat dateFormat) {
+		this.dateFormat = dateFormat;
 	}
 
 	@Override
@@ -68,6 +76,7 @@ public class ApparelProductPopulator implements Populator<ProductModel, ProductD
 		} else if (baseProduct instanceof ConcertModel) {
 			final ConcertModel concertModel = (ConcertModel) baseProduct;
 			target.setTour(tourConverter.convert(concertModel.getTour()));
+			target.setConcertDate(this.dateFormat.format(concertModel.getDate()));
 			target.setVenue(concertModel.getVenue());
 		}
 	}

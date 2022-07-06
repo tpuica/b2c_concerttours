@@ -73,6 +73,7 @@
 	<bean id="apparelProductPopulator" class="de.stripedgiraffe.concerttours.facades.populators.ApparelProductPopulator" >
 		<property name="genderConverter" ref="genderConverter"/>
 		<property name="tourConverter" ref="tourConverter"/>
+		<property name="dateFormat" ref="concertToursDateFormat"/>
 	</bean>
 
 	<bean id="tourConverter" class="de.stripedgiraffe.concerttours.facades.converters.TourConverter">

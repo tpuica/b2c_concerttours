@@ -5,15 +5,20 @@ package de.stripedgiraffe.concerttours.core.search.solrfacetsearch.provider.impl
 
 import de.stripedgiraffe.concerttours.core.model.ConcertModel;
 import de.stripedgiraffe.concerttours.core.model.ConcertTicketModel;
+import org.springframework.beans.factory.annotation.Required;
 
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 
 public class ConcertDateValueProvider extends BasePropertyFieldValueProvider<ConcertModel>
 {
 
-	private final static DateFormat DATE_FORMATTER = new SimpleDateFormat("dd-MM-yyyy");
+	private DateFormat dateFormat;
+
+	@Required
+	public void setDateFormat(DateFormat dateFormat) {
+		this.dateFormat = dateFormat;
+	}
 
 	@Override
 	ConcertModel getModel(Object model) {
@@ -35,7 +40,7 @@ public class ConcertDateValueProvider extends BasePropertyFieldValueProvider<Con
 
 	@Override
 	String getFieldValue(ConcertModel model) {
-		return (model != null) ? DATE_FORMATTER.format(model.getDate()) : null;
+		return (model != null) ? this.dateFormat.format(model.getDate()) : null;
 	}
 
 }
