@@ -6,10 +6,27 @@
 
 	<bean class="de.hybris.platform.commercefacades.product.data.ProductData">
 		<property name="genders" type="java.util.List&lt;de.stripedgiraffe.concerttours.facades.product.data.GenderData>"/>
+		<property name="venue" type="String"/>
+		<property name="tour" type="de.stripedgiraffe.concerttours.facades.data.TourData"/>
 	</bean>
 
 	<bean class="de.stripedgiraffe.concerttours.facades.product.data.GenderData">
 		<property name="code" type="String"/>
 		<property name="name" type="String"/>
 	</bean>
+
+	<bean class = "de.stripedgiraffe.concerttours.facades.data.TourData" >
+		<property name = "code" type = "String" />
+		<property name = "name" type = "String" />
+		<property name = "hashtag" type = "String" />
+		<property name = "band" type="de.stripedgiraffe.concerttours.facades.data.BandData"/>
+	</bean>
+
+	<bean class = "de.stripedgiraffe.concerttours.facades.data.BandData" >
+		<property name = "code" type = "String" />
+		<property name = "name" type = "String" />
+		<property name = "albumsSold" type = "Long" />
+		<property name = "genres" type="java.util.List&lt;String&gt;"/>
+	</bean>
+
 </beans>

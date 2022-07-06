@@ -11,6 +11,9 @@ import de.hybris.platform.servicelayer.dto.converter.ConversionException;
 import de.hybris.platform.servicelayer.dto.converter.Converter;
 import de.hybris.platform.variants.model.VariantProductModel;
 import de.stripedgiraffe.concerttours.core.model.ApparelProductModel;
+import de.stripedgiraffe.concerttours.core.model.ConcertModel;
+import de.stripedgiraffe.concerttours.core.model.ConcertTicketModel;
+import de.stripedgiraffe.concerttours.facades.converters.TourConverter;
 import de.stripedgiraffe.concerttours.facades.product.data.GenderData;
 
 import java.util.ArrayList;
@@ -27,6 +30,8 @@ public class ApparelProductPopulator implements Populator<ProductModel, ProductD
 {
 	private Converter<Gender, GenderData> genderConverter;
 
+	private TourConverter tourConverter;
+
 	protected Converter<Gender, GenderData> getGenderConverter()
 	{
 		return genderConverter;
@@ -36,6 +41,11 @@ public class ApparelProductPopulator implements Populator<ProductModel, ProductD
 	public void setGenderConverter(final Converter<Gender, GenderData> genderConverter)
 	{
 		this.genderConverter = genderConverter;
+	}
+
+	@Required
+	public void setTourConverter(TourConverter tourConverter) {
+		this.tourConverter = tourConverter;
 	}
 
 	@Override
@@ -55,6 +65,9 @@ public class ApparelProductPopulator implements Populator<ProductModel, ProductD
 				}
 				target.setGenders(genders);
 			}
+		} else if (baseProduct instanceof ConcertModel) {
+			final ConcertModel concertModel = (ConcertModel) baseProduct;
+			target.setTour(tourConverter.convert(concertModel.getTour()));
 		}
 	}
 
