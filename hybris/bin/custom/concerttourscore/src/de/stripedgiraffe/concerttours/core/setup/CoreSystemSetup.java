@@ -58,6 +58,7 @@ public class CoreSystemSetup extends AbstractSystemSetup
 		importImpexFile(context, "/concerttourscore/import/common/essential-data.impex");
 		importImpexFile(context, "/concerttourscore/import/common/countries.impex");
 		importImpexFile(context, "/concerttourscore/import/common/delivery-modes.impex");
+		importImpexFile(context, "/concerttourscore/import/common/music-types.impex");
 
 		importImpexFile(context, "/concerttourscore/import/common/themes.impex");
 		importImpexFile(context, "/concerttourscore/import/common/user-groups.impex");
@@ -106,6 +107,10 @@ public class CoreSystemSetup extends AbstractSystemSetup
 		processCockpit(context, importAccessRights, extensionNames, "customersupportbackoffice",
 				"/concerttourscore/import/cockpits/cscockpit/cscockpit-users.impex",
 				"/concerttourscore/import/cockpits/cscockpit/cscockpit-access-rights.impex");
+
+		// bands + tours
+		importImpexFile(context, "/concerttourscore/import/sampledata/concerttours/bands.impex");
+		importImpexFile(context, "/concerttourscore/import/sampledata/concerttours/tours.impex");
 
 		final List<ImportData> importData = new ArrayList<ImportData>();
 
