@@ -85,6 +85,12 @@
 		<property name="targetClass" value="de.stripedgiraffe.concerttours.facades.data.BandData"/>
 	</bean>
 
+	<alias name="concertSearchResultProductPopulator" alias="commerceSearchResultProductPopulator"/>
+	<bean id="concertSearchResultProductPopulator"
+		  class="de.stripedgiraffe.concerttours.facades.populators.ConcertSearchResultPopulator"
+		  parent="variantOptionsCommerceSearchResultProductPopulator">
+	</bean>
+
 	<!-- Add the apparelProductPopulator to the productConverter -->
 	<bean parent="modifyPopulatorList">
 		<property name="list" ref="productConverter"/>

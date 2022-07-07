@@ -3,10 +3,23 @@
 <%@ taglib prefix="cms" uri="http://hybris.com/tld/cmstags"%>
 <%@ taglib prefix="ycommerce" uri="http://hybris.com/tld/ycommercetags"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="product-details page-title">
 	<ycommerce:testId code="productDetails_productNamePrice_label_${product.code}">
-		<div class="name">${fn:escapeXml(product.name)}<span class="sku">ID</span><span class="code">${fn:escapeXml(product.code)}</span></div>
+		<c:choose>
+			<c:when test="${(not empty product.baseOptions[0].options) and (product.baseOptions[0].variantType eq 'ConcertTicket')}">
+				<div class="name">
+						${fn:escapeXml(product.tour.band.name)}<span class="sku">
+						${fn:escapeXml(product.venue)}<span class="sku">
+						${fn:escapeXml(product.concertDate)}<span class="sku">
+						ID</span><span class="code">${fn:escapeXml(product.code)}</span>
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div class="name">${fn:escapeXml(product.name)}<span class="sku">ID</span><span class="code">${fn:escapeXml(product.code)}</span></div>
+			</c:otherwise>
+		</c:choose>
 	</ycommerce:testId>
 	<product:productReviewSummary product="${product}" showLinks="true"/>
 </div>
