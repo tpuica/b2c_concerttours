@@ -8,6 +8,7 @@
 		<property name="genders" type="java.util.List&lt;de.stripedgiraffe.concerttours.facades.product.data.GenderData>"/>
 		<property name="venue" type="String"/>
 		<property name="concertDate" type="String"/>
+		<property name="startingPrice" type="de.hybris.platform.commercefacades.product.data.PriceData"/>
 		<property name="tour" type="de.stripedgiraffe.concerttours.facades.data.TourData"/>
 	</bean>
 

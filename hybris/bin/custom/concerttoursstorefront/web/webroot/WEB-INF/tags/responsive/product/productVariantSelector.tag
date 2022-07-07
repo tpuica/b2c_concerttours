@@ -145,7 +145,7 @@
                                     <c:forEach items="${ticketType.variantOptionQualifiers}" var="variantOptionQualifier">
                                         <c:if test="${variantOptionQualifier.qualifier eq 'ticketType'}">
                                             <c:set var="variantOptionQualifierValueHtml" value="${fn:escapeXml(variantOptionQualifier.value)}"/>
-                                            <c:set var="optionsStringHtml">${optionsStringHtml}&nbsp;${fn:escapeXml(variantOptionQualifier.name)}&nbsp;${variantOptionQualifierValueHtml}, </c:set>
+                                            <c:set var="optionsStringHtml">${optionsStringHtml}&nbsp;${fn:escapeXml(variantOptionQualifier.name)}&nbsp;${variantOptionQualifierValueHtml} </c:set>
                                             <c:set var="nameStringHtml">${variantOptionQualifierValueHtml}</c:set>
                                         </c:if>
                                     </c:forEach>
@@ -158,8 +158,7 @@
                                     <c:url value="${ticketType.url}" var="variantOptionUrl"/>
 
                                     <option value="${fn:escapeXml(variantOptionUrl)}" ${(ticketType.url eq product.url) ? 'selected="selected"' : ''}>
-                                            ${optionsStringHtml}&nbsp;<format:price
-                                            priceData="${ticketType.priceData}"/>
+                                            ${optionsStringHtml}&nbsp;(<format:price priceData="${ticketType.priceData}"/>)
                                     </option>
                                 </c:forEach>
                             </c:if>
