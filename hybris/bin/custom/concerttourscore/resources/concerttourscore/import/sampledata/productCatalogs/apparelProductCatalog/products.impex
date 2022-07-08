@@ -29,7 +29,7 @@ INSERT_UPDATE Concert;code[unique=true];name;date[dateformat=dd.MM.yyyy];tour(co
 ;80000102;Grand Little Tour - Rosenheim;02.01.2023;800001;"Rosenheim, Oberbayern";indoor;ConcertTicket;concerts,A005;
 
 # Insert Products
-INSERT_UPDATE ConcertTicket;code[unique=true];name;baseProduct(code);$catalogVersion;$approved
+INSERT_UPDATE ConcertTicket;code[unique=true];name;baseProduct(code);$catalogVersion;$approved;$taxGroup
 ;2017010101;Grand Tour - Munich;20170101;
 ;2017010102;Grand Tour - Munich;20170101;
 ;2017010103;Grand Tour - Munich;20170101;

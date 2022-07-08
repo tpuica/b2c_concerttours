@@ -1,0 +1,48 @@
+# -----------------------------------------------------------------------
+# Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+# -----------------------------------------------------------------------
+# ImpEx for Importing Product taxes into Apparel store
+
+# Insert Product taxes for GB
+
+INSERT_UPDATE ProductTaxCode;productCode[unique=true];taxCode;taxArea[unique=true]
+;2017010101;PC040400;GB
+;2017010102;PC040400;GB
+;2017010103;PC040400;GB
+;2017010104;PC040400;GB
+;2017010201;PC040400;GB
+;2017010202;PC040400;GB
+;2017010203;PC040400;GB
+;8000010101;PC040400;GB
+;8000010102;PC040400;GB
+;8000010201;PC040400;GB
+
+
+
+# Insert Product taxes for DE
+INSERT_UPDATE ProductTaxCode;productCode[unique=true];taxCode;taxArea[unique=true]
+;2017010101;PC040400;DE
+;2017010102;PC040400;DE
+;2017010103;PC040400;DE
+;2017010104;PC040400;DE
+;2017010201;PC040400;DE
+;2017010202;PC040400;DE
+;2017010203;PC040400;DE
+;8000010101;PC040400;DE
+;8000010102;PC040400;DE
+;8000010201;PC040400;DE
+
+
+
+# Insert Product taxes for US
+INSERT_UPDATE ProductTaxCode;productCode[unique=true];taxCode;taxArea[unique=true]
+;2017010101;PC040400;US
+;2017010102;PC040400;US
+;2017010103;PC040400;US
+;2017010104;PC040400;US
+;2017010201;PC040400;US
+;2017010202;PC040400;US
+;2017010203;PC040400;US
+;8000010101;PC040400;US
+;8000010102;PC040400;US
+;8000010201;PC040400;US
