@@ -466,6 +466,7 @@ def platform = platform {
 			extName 'concerttoursfulfilmentprocess'
 			extName 'concerttoursinitialdata'		   
 			extName 'concerttoursstorefront'
+			extName 'concerttourspromotions'
     }
 
     addons {
