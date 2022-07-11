@@ -54,6 +54,18 @@
 		<property name="resource" value="classpath:/concerttoursfulfilmentprocess/process/return-process.xml"/>
 	</bean>
 
+	<!-- Converters -->
+	<bean id="deliveryAddressGeocodeConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass" value="de.hybris.platform.storelocator.data.AddressData"/>
+		<property name="populators">
+			<list merge="true">
+				<ref bean="deliveryAddressGeocodePopulator"/>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="deliveryAddressGeocodePopulator" class="de.stripedgiraffe.concerttours.fulfilmentprocess.converters.AddressPopulator" />
+
 	<!-- Process Actions -->
 
 	<import resource="/concerttoursfulfilmentprocess/process/order-process-spring.xml"/>
