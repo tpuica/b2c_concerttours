@@ -63,7 +63,17 @@
 	</action>
 
 	<action id="sendOrderPlacedNotification" bean="sendOrderPlacedNotificationAction">
-		<transition name="OK" to="takePayment"/>
+		<transition name="OK" to="geocodeShippingAddress"/>
+		<!-- <transition name="OK" to="takePayment"/> -->
+	</action>
+	
+	<!-- Sourcing and Allocation -->
+	<action id='geocodeShippingAddress' bean='geocodeShippingAddressAction'>
+		<transition name='OK' to='sourceOrder'/>
+	</action>
+
+	<action id='sourceOrder' bean='sourceOrderAction'>
+		<transition name='OK' to='takePayment'/>
 	</action>
 	
 	<action id="takePayment" bean="takePaymentAction">

@@ -30,6 +30,17 @@
 	<bean id="sendOrderPlacedNotificationAction" class="de.stripedgiraffe.concerttours.fulfilmentprocess.actions.order.SendOrderPlacedNotificationAction"  parent="abstractAction">
 		<property name="eventService" ref="eventService"/>
 	</bean>
+	
+	<bean id="geocodeShippingAddressAction" class="de.stripedgiraffe.concerttours.fulfilmentprocess.actions.order.GeocodeShippingAddressAction" parent="abstractAction">
+		<property name="geoWebServiceWrapper" ref="geoServiceWrapper"/>
+		<property name="addressConverter" ref="deliveryAddressGeocodeConverter"/>
+	</bean>
+		
+	<bean id="sourceOrderAction" class="de.stripedgiraffe.concerttours.fulfilmentprocess.actions.order.SourceOrderAction" parent="abstractAction">
+		<property name="sourcingService" ref="sourcingService"/>
+		<property name="allocationService" ref="allocationService"/>
+		<property name="businessProcessService" ref="businessProcessService"/>
+	</bean>
 
 	<bean id="takePaymentAction" class="de.stripedgiraffe.concerttours.fulfilmentprocess.actions.order.TakePaymentAction"  parent="abstractAction">
 		<property name="paymentService" ref="paymentService"/>
