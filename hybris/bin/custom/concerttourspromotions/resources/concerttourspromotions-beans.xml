@@ -9,8 +9,6 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="beans.xsd">
 
 	<bean class="de.hybris.platform.ruleengineservices.rao.OrderEntryRAO" >
-		<property name="availability" type="int" />
-		<property name="availabilityRegularPrice" type="int" />
 		<property name="qualifyForEarlyBirdPromotion" type="boolean" />
 	</bean>
 

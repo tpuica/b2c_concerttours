@@ -4,11 +4,8 @@
 -->
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-           http://www.springframework.org/schema/beans/spring-beans.xsd
-           http://www.springframework.org/schema/aop
-           http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <alias name="concertToursEntryRaoPopulator" alias="orderEntryRaoPopulator" />
     <bean id="concertToursEntryRaoPopulator" class="de.stripedgiraffe.concerttours.promotions.converters.populator.CustomOrderEntryRaoPopulator"
@@ -22,16 +19,6 @@
     <alias alias="ruleEarlyBirdTranslator" name="defaultRuleEarlyBirdTranslator" />
     <bean id="defaultRuleEarlyBirdTranslator" class="de.stripedgiraffe.concerttours.promotions.conditions.RuleEarlyBirdTicketConditionTranslator" />
 
-    <alias alias="ruleEarlyBirdAction" name="defaultRuleEarlyBirdAction" />
-    <bean id="defaultRuleEarlyBirdAction" class="de.hybris.platform.ruledefinitions.actions.DefaultRuleExecutableAction">
-        <property name="raoAction" ref="ruleEarlyBirdApplyActionDiscountRaoAction"/>
-    </bean>
-    <alias alias="ruleEarlyBirdApplyActionDiscountRaoAction" name="defaultRuleEarlyBirdApplyActionDiscountRaoAction" />
-    <bean id="defaultRuleEarlyBirdApplyActionDiscountRaoAction" parent="abstractRuleExecutableSupport" class="de.stripedgiraffe.concerttours.promotions.actions.RuleEarlyBirdApplyDiscountRaoAction"/>
-
-    <util:map id="promotionActionStrategiesMapping">
-        <entry key="defaultRuleEarlyBirdApplyActionDiscountRaoAction" value-ref="orderEntryAdjustActionStrategy" />
-    </util:map>
 
 	<!--
 	The hybris platform provides one single Spring application context for beans located at the jalo layer.

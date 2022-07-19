@@ -39,8 +39,6 @@ public class CustomOrderEntryRaoPopulator extends OrderEntryRaoPopulator {
         int availableQuantityRegularPrice = stockLevels.stream().mapToInt(sl -> sl.getAvailableRegularPrice()).sum();
 
         target.setQualifyForEarlyBirdPromotion(availableQuantity.intValue() >= availableQuantityRegularPrice + source.getQuantity());
-        target.setAvailability(availableQuantity.intValue());
-        target.setAvailabilityRegularPrice(availableQuantityRegularPrice);
     }
 
     protected BaseStoreService getBaseStoreService()
