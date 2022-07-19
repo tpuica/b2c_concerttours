@@ -3,12 +3,35 @@
  Copyright (c) 2021 SAP SE or an SAP affiliate company. All rights reserved.
 -->
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/aop
-           http://www.springframework.org/schema/aop/spring-aop.xsd">
+           http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <alias name="concertToursEntryRaoPopulator" alias="orderEntryRaoPopulator" />
+    <bean id="concertToursEntryRaoPopulator" class="de.stripedgiraffe.concerttours.promotions.converters.populator.CustomOrderEntryRaoPopulator"
+            parent="defaultOrderEntryRaoPopulator">
+        <property name="commerceStockService" ref="commerceStockService"/>
+        <property name="baseStoreService" ref="baseStoreService"/>
+        <property name="stockService" ref="stockService"/>
+        <property name="warehouseSelectionStrategy" ref="warehouseSelectionStrategy"/>
+    </bean>
+
+    <alias alias="ruleEarlyBirdTranslator" name="defaultRuleEarlyBirdTranslator" />
+    <bean id="defaultRuleEarlyBirdTranslator" class="de.stripedgiraffe.concerttours.promotions.conditions.RuleEarlyBirdTicketConditionTranslator" />
+
+    <alias alias="ruleEarlyBirdAction" name="defaultRuleEarlyBirdAction" />
+    <bean id="defaultRuleEarlyBirdAction" class="de.hybris.platform.ruledefinitions.actions.DefaultRuleExecutableAction">
+        <property name="raoAction" ref="ruleEarlyBirdApplyActionDiscountRaoAction"/>
+    </bean>
+    <alias alias="ruleEarlyBirdApplyActionDiscountRaoAction" name="defaultRuleEarlyBirdApplyActionDiscountRaoAction" />
+    <bean id="defaultRuleEarlyBirdApplyActionDiscountRaoAction" parent="abstractRuleExecutableSupport" class="de.stripedgiraffe.concerttours.promotions.actions.RuleEarlyBirdApplyDiscountRaoAction"/>
+
+    <util:map id="promotionActionStrategiesMapping">
+        <entry key="defaultRuleEarlyBirdApplyActionDiscountRaoAction" value-ref="orderEntryAdjustActionStrategy" />
+    </util:map>
 
 	<!--
 	The hybris platform provides one single Spring application context for beans located at the jalo layer.

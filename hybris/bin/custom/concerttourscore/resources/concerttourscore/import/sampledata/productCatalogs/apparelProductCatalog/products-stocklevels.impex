@@ -10,16 +10,16 @@
 #$vendor=apparello
 
 # Create Stock levels at the Warehouses for Products
-INSERT_UPDATE StockLevel;available[unique=true];warehouse(code)[unique=true];inStockStatus(code);maxPreOrder;maxStockLevelHistoryCount;overSelling;preOrder;productCode[unique=true];reserved
+INSERT_UPDATE StockLevel;available[unique=true];availableRegularPrice;warehouse(code)[unique=true];inStockStatus(code);maxPreOrder;maxStockLevelHistoryCount;overSelling;preOrder;productCode[unique=true];reserved;
 #;0;ap_warehouse_s;notSpecified;0;0;0;0;35099;0
-;300;ap_warehouse_s;notSpecified;0;0;0;0;2017010101;0
-;200;ap_warehouse_s;notSpecified;0;0;0;0;2017010102;0
-;150;ap_warehouse_s;notSpecified;0;0;0;0;2017010103;0
-;50;ap_warehouse_s;notSpecified;0;0;0;0;2017010104;0
-;235;ap_warehouse_n;notSpecified;0;0;0;0;2017010201;0
-;99;ap_warehouse_n;notSpecified;0;0;0;0;2017010202;0
-;35;ap_warehouse_n;notSpecified;0;0;0;0;2017010203;0
-;235;ap_warehouse_w;notSpecified;0;0;0;0;8000010101;0
-;99;ap_warehouse_w;notSpecified;0;0;0;0;8000010102;0
-;0;ap_warehouse_e;notSpecified;0;0;0;0;8000010201;0
+;300;270;ap_warehouse_s;notSpecified;0;0;0;0;2017010101;0
+;200;180;ap_warehouse_s;notSpecified;0;0;0;0;2017010102;0
+;150;35;ap_warehouse_s;notSpecified;0;0;0;0;2017010103;0
+;50;45;ap_warehouse_s;notSpecified;0;0;0;0;2017010104;0
+;235;215;ap_warehouse_n;notSpecified;0;0;0;0;2017010201;0
+;99;90;ap_warehouse_n;notSpecified;0;0;0;0;2017010202;0
+;35;32;ap_warehouse_n;notSpecified;0;0;0;0;2017010203;0
+;235;215;ap_warehouse_w;notSpecified;0;0;0;0;8000010101;0
+;99;90;ap_warehouse_w;notSpecified;0;0;0;0;8000010102;0
+;0;0;ap_warehouse_e;notSpecified;0;0;0;0;8000010201;0
 

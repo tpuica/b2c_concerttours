@@ -1,0 +1,22 @@
+$lang=en
+
+INSERT_UPDATE RuleConditionDefinition;id[unique=true];name[lang=$lang];priority;breadcrumb[lang=$lang];allowsChildren;translatorId;translatorParameters;categories(id)
+;concerttours_earlybird;Early Bird Concert Tickets;200;Early Bird Tickets available;false;ruleEarlyBirdTranslator;;customer
+
+INSERT_UPDATE RuleConditionDefinitionRuleTypeMapping;definition(id)[unique=true];ruleType(code)[default=PromotionSourceRule][unique=true]
+;concerttours_earlybird;
+
+
+
+
+
+############################## Actions ###########################
+
+INSERT_UPDATE RuleActionDefinition;id[unique = true];name[lang = $lang];priority;breadcrumb[lang = $lang];translatorId;translatorParameters;categories(id)
+;early_bird_percentage_discount;Early Bird Percentage discount;1400;Apply {value} early bird discount;ruleExecutableActionTranslator;actionId->ruleEarlyBirdAction;product_discounts
+
+INSERT_UPDATE RuleActionDefinitionParameter;definition(id)[unique = true];id[unique = true];priority;name[lang = $lang];description[lang = $lang];type;value;required[default = true];validators
+;early_bird_percentage_discount;value;1000;Percentage discount value;Percentage discount that will be applied;java.math.BigDecimal;;;rulePercentageParameterValidator
+
+INSERT_UPDATE RuleActionDefinitionRuleTypeMapping; definition(id)[unique = true];ruleType(code)[default = PromotionSourceRule][unique = true]
+;early_bird_percentage_discount;

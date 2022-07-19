@@ -17,10 +17,11 @@
       
         
         <!-- <requires-extension name="cms"/> -->
-		<requires-extension name="promotionengineservices" />                         
-      
+		<requires-extension name="promotionengineservices" />
 
-      
+        <requires-extension name="commercefacades"/>
+
+        <requires-extension name="warehousing"/>
         
         <coremodule generated="true" manager="de.stripedgiraffe.concerttours.promotions.jalo.ConcerttourspromotionsManager" packageroot="de.stripedgiraffe.concerttours.promotions"/>
                       

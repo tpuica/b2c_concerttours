@@ -60,6 +60,17 @@
         <!-- TypeGroups are for structure of this file only -->
 
 		<typegroup name="ConcertTours">
+
+			<itemtype code="StockLevel" autocreate="false" generate="false">
+				<description>Extending StockLevel type with additional promo stock attribute.</description>
+				<attributes>
+					<attribute type="int" qualifier="availableRegularPrice">
+						<defaultvalue>Integer.valueOf(0)</defaultvalue>
+						<modifiers read="true" write="true" search="true" unique="false" optional="false" />
+						<persistence type="property" />
+					</attribute>
+				</attributes>
+			</itemtype>
 		
 			<itemtype generate="true" code="Tour" autocreate="true">
 				<deployment table="Tours" typecode="30368" />
